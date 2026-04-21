@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paquetes Turísticos – Scatur</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    /* =============================================
+       DESIGN TOKENS — idénticos al resto del sitio
+    ============================================= */
+    :root {
+      --primary: #1a3a5c;
+      --primary-dark: #0f2540;
+      --accent: #e63946;
+      --gold: #c9a84c;
+      --border: #e2e8f0;
+      --card-bg: #f0f4f8;
+      --off-white: #f8fafc;
+      --muted: #6b7280;
+      --footer-from: #0f2540;
+      --footer-to: #1e4a7a;
+      --font-display: 'Cormorant Garamond', serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    *,
+    body {
+      font-family: var(--font-body);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 3px;
+    }
+
+    /* =============================================
+       NAVBAR
+    ============================================= */
+    .navbar-pill {
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 9999px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+      backdrop-filter: blur(10px);
+      transition: box-shadow .3s;
+    }
+
+    .navbar-pill.scrolled {
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.14);
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.13);
+      min-width: 220px;
+      z-index: 100;
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+      animation: dropIn .2s ease;
+    }
+
+    @keyframes dropIn {
+      from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-6px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+    }
+
+    /* =============================================
+       PAGE HERO — compact banner
+    ============================================= */
+    .page-hero {
+      position: relative;
+      min-height: 260px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .page-hero-bg {
+      position: absolute;
+      inset: -10% -5%;
+      background: url('https://images.unsplash.com/photo-1531968455001-5c5272a41129?w=1800&q=85') center/cover no-repeat;
+      will-change: transform;
+    }
+
+    .page-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom,
+          rgba(15, 37, 64, 0.75) 0%,
+          rgba(15, 37, 64, 0.60) 100%);
+    }
+
+    .page-hero-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+    }
+
+    /* =============================================
+       BREADCRUMB
+    ============================================= */
+    .breadcrumb {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      padding: 14px 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .breadcrumb a {
+      color: var(--primary);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* =============================================
+       FILTER PILLS BAR
+    ============================================= */
+    .filter-bar-wrap {
+      position: sticky;
+      top: 72px;
+      z-index: 40;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 20px;
+      transition: box-shadow .3s;
+    }
+
+    .filter-bar-wrap.stuck {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+    }
+
+    .filter-group-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-right: 8px;
+      white-space: nowrap;
+    }
+
+    .filter-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 500;
+      border: 1.5px solid var(--border);
+      background: white;
+      color: var(--muted);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all .2s cubic-bezier(.4, 0, .2, 1);
+      user-select: none;
+    }
+
+    .filter-pill:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .filter-pill.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+      box-shadow: 0 2px 12px rgba(26, 58, 92, 0.25);
+    }
+
+    /* Type-specific active colors */
+    .filter-pill.active.type-aventura {
+      background: #854f0b;
+      border-color: #854f0b;
+    }
+
+    .filter-pill.active.type-cultural {
+      background: #0f6e56;
+      border-color: #0f6e56;
+    }
+
+    .filter-pill.active.type-eco {
+      background: #3b6d11;
+      border-color: #3b6d11;
+    }
+
+    .filter-pill.active.type-enoturismo {
+      background: #533489;
+      border-color: #533489;
+    }
+
+    .clear-btn {
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 500;
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: 6px;
+      border: none;
+      background: none;
+      transition: background .2s;
+    }
+
+    .clear-btn:hover {
+      background: #fee2e2;
+    }
+
+    .clear-btn.hidden {
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    /* Results count */
+    .results-count {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .results-count span {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* =============================================
+       PACKAGE CARDS
+    ============================================= */
+    .pkg-card {
+      background: white;
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: transform .35s cubic-bezier(.4, 0, .2, 1),
+        box-shadow .35s, border-color .35s;
+    }
+
+    .pkg-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(to right, var(--primary), var(--gold));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .4s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    .pkg-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(26, 58, 92, 0.13);
+      border-color: rgba(26, 58, 92, 0.15);
+    }
+
+    .pkg-card:hover::after {
+      transform: scaleX(1);
+    }
+
+    /* Card image area */
+    .pkg-card-img {
+      position: relative;
+      height: 195px;
+      overflow: hidden;
+      background: var(--card-bg);
+    }
+
+    .pkg-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .6s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    .pkg-card:hover .pkg-card-img img {
+      transform: scale(1.07);
+    }
+
+    /* Duration badge — top left */
+    .duration-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(10, 14, 26, 0.72);
+      backdrop-filter: blur(4px);
+      color: white;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 11px;
+      border-radius: 9999px;
+      letter-spacing: 0.03em;
+    }
+
+    /* Type badge — top right */
+    .type-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 11px;
+      border-radius: 9999px;
+      letter-spacing: 0.03em;
+    }
+
+    .badge-aventura {
+      background: rgba(250, 238, 218, 0.92);
+      color: #633806;
+    }
+
+    .badge-cultural {
+      background: rgba(225, 245, 238, 0.92);
+      color: #085041;
+    }
+
+    .badge-eco {
+      background: rgba(234, 243, 222, 0.92);
+      color: #27500a;
+    }
+
+    .badge-enoturismo {
+      background: rgba(238, 237, 254, 0.92);
+      color: #26215c;
+    }
+
+    .badge-urbano {
+      background: rgba(230, 241, 251, 0.92);
+      color: #0c447c;
+    }
+
+    /* Card body */
+    .pkg-card-body {
+      padding: 18px 20px 16px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .pkg-card-code {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+
+    .pkg-card-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+
+    /* Destination pills */
+    .dest-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 12px;
+    }
+
+    .dest-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      color: var(--muted);
+      background: var(--off-white);
+      border-radius: 9999px;
+      padding: 3px 9px;
+      border: 1px solid var(--border);
+    }
+
+    .dest-pill svg {
+      flex-shrink: 0;
+    }
+
+    /* Includes chips */
+    .incl-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 14px;
+    }
+
+    .incl-chip {
+      font-size: 11px;
+      color: var(--muted);
+      background: var(--card-bg);
+      border-radius: 9999px;
+      padding: 3px 10px;
+    }
+
+    /* Card footer */
+    .pkg-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+      margin-top: auto;
+    }
+
+    .btn-ver-mas {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--primary);
+      padding: 7px 18px;
+      border-radius: 9999px;
+      border: 1.5px solid rgba(26, 58, 92, 0.25);
+      transition: background .25s, color .25s, border-color .25s, gap .2s;
+      text-decoration: none;
+    }
+
+    .btn-ver-mas:hover {
+      background: var(--primary);
+      color: white;
+      border-color: transparent;
+      gap: 10px;
+    }
+
+    .btn-wa-card {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--muted);
+      border: none;
+      background: none;
+      cursor: pointer;
+      padding: 6px 4px;
+      border-radius: 8px;
+      transition: color .2s, background .2s;
+    }
+
+    .btn-wa-card:hover {
+      color: var(--primary);
+      background: var(--off-white);
+    }
+
+    /* =============================================
+       EMPTY STATE
+    ============================================= */
+    .empty-state {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 20px;
+      grid-column: 1 / -1;
+    }
+
+    .empty-state.show {
+      display: flex;
+    }
+
+    .empty-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      background: var(--card-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    /* =============================================
+       LOAD MORE BUTTON
+    ============================================= */
+    .btn-load-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 36px;
+      border-radius: 9999px;
+      background: var(--primary);
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: background .25s, transform .2s, box-shadow .25s;
+      box-shadow: 0 4px 20px rgba(26, 58, 92, 0.3);
+    }
+
+    .btn-load-more:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(26, 58, 92, 0.4);
+    }
+
+    .btn-load-more.hidden {
+      display: none;
+    }
+
+    /* =============================================
+       NEWSLETTER & FOOTER (idénticos al resto)
+    ============================================= */
+    .newsletter-section {
+      position: relative;
+      background: url('https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1800&q=85') center/cover no-repeat fixed;
+      min-height: 380px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .newsletter-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right,
+          rgba(10, 25, 50, 0.82) 0%, rgba(10, 25, 50, 0.35) 60%, transparent 100%);
+    }
+
+    footer {
+      background: linear-gradient(160deg, var(--footer-from), var(--footer-to));
+    }
+
+    .footer-link {
+      color: rgba(255, 255, 255, 0.75);
+      transition: color .2s, transform .2s;
+      display: inline-block;
+    }
+
+    .footer-link:hover {
+      color: white;
+      transform: translateX(3px);
+    }
+
+    .f-social {
+      width: 38px;
+      height: 38px;
+      border-radius: 9999px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.55);
+      transition: background .2s, border-color .2s, color .2s, transform .2s;
+    }
+
+    .f-social:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.4);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* Section labels */
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-label::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .heading-display {
+      font-family: var(--font-display);
+      color: var(--primary);
+      line-height: 1.08;
+    }
+
+    /* Animate hidden cards out */
+    .pkg-card.hidden-card {
+      display: none;
+    }
+
+    .pkg-card.fade-out {
+      animation: fadeOut .2s ease forwards;
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        transform: scale(0.97);
+      }
+    }
+
+    [data-aos] {
+      will-change: transform, opacity;
+    }
+  </style>
+
+  <script>tailwind.config = { theme: { extend: { colors: { primary: '#1a3a5c', accent: '#e63946', gold: '#c9a84c' } } } }</script>
+</head>
+
+<body class="bg-white antialiased overflow-x-hidden">
+
+  <!-- ============================================================
+       Start: Navbar
+  ============================================================ -->
+  <!--
+  <header class="fixed top-0 left-0 right-0 z-50 px-4 pt-4">
+    <nav id="navbar" class="navbar-pill max-w-6xl mx-auto px-6 py-2.5 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 shrink-0">
+        <span class="text-2xl font-bold tracking-tight" style="color:var(--primary);font-family:var(--font-display);">
+          scat<span style="color:var(--accent);">u&#775;</span>r
+        </span>
+        <span class="text-[9px] text-gray-400 uppercase tracking-[0.2em] hidden sm:block leading-none mt-1">your operator</span>
+      </a>
+
+      <ul class="hidden md:flex items-center gap-0.5 text-sm font-medium" style="color:var(--primary);">
+        <li class="dropdown">
+          <button class="flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-gray-100 font-semibold" style="color:var(--primary);">
+            Servicios
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="dropdown-menu">
+            <a href="paquetes.html" class="flex items-center gap-3 px-5 py-3.5 text-sm hover:bg-blue-50 transition-colors group font-semibold" style="color:var(--primary);">
+              <svg class="w-4 h-4 opacity-100" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="15" cy="15" r="2"/></svg>Paquetes Turísticos
+            </a>
+            <a href="index.html#servicios" class="flex items-center gap-3 px-5 py-3.5 text-sm hover:bg-blue-50 transition-colors group" style="color:var(--primary);">
+              <svg class="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>Boletos Aéreos
+            </a>
+            <a href="index.html#servicios" class="flex items-center gap-3 px-5 py-3.5 text-sm hover:bg-blue-50 transition-colors group" style="color:var(--primary);">
+              <svg class="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M2 20h20M5 20V8l7-5 7 5v12"/></svg>Cruceros
+            </a>
+            <a href="index.html#servicios" class="flex items-center gap-3 px-5 py-3.5 text-sm hover:bg-blue-50 transition-colors group" style="color:var(--primary);">
+              <svg class="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Asistencia al Viajero
+            </a>
+            <a href="index.html#servicios" class="flex items-center gap-3 px-5 py-3.5 text-sm hover:bg-blue-50 transition-colors group" style="color:var(--primary);">
+              <svg class="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>Asesoramiento en Visa
+            </a>
+          </div>
+        </li>
+        <li><a href="contacto.html" class="px-4 py-2.5 rounded-full hover:bg-gray-100 transition-colors">Contáctanos</a></li>
+        <li><a href="nosotros.html" class="px-4 py-2.5 rounded-full hover:bg-gray-100 transition-colors">Sobre Nosotros</a></li>
+        <li class="dropdown ml-1">
+          <button class="flex items-center gap-2 px-4 py-2.5 rounded-full border border-gray-200 hover:bg-gray-100 transition-colors">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+            Spanish
+            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="dropdown-menu">
+            <a href="#" class="block px-5 py-3.5 text-sm hover:bg-gray-50 transition-colors" style="color:var(--primary);">Español</a>
+            <a href="#" class="block px-5 py-3.5 text-sm hover:bg-gray-50 transition-colors" style="color:var(--primary);">English</a>
+          </div>
+        </li>
+      </ul>
+
+      <button id="mobile-menu-btn" class="md:hidden p-2 rounded-full hover:bg-gray-100 transition-colors" style="color:var(--primary);">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </nav>
+    <div id="mobile-menu" class="hidden md:hidden navbar-pill max-w-6xl mx-auto mt-2 px-6 py-5 flex flex-col gap-4 text-sm font-medium" style="color:var(--primary);">
+      <a href="paquetes.html" class="font-semibold">Paquetes Turísticos</a>
+      <a href="contacto.html" class="hover:opacity-70 transition-opacity">Contáctanos</a>
+      <a href="nosotros.html" class="hover:opacity-70 transition-opacity">Sobre Nosotros</a>
+    </div>
+  </header>
+  -->
+  <!-- End: Navbar -->
+
+
+  <main>
+
+    <!-- ============================================================
+         Start: Page Hero
+    ============================================================ -->
+    <section class="page-hero">
+      <div class="page-hero-bg" id="hero-bg"></div>
+      <div class="page-hero-overlay"></div>
+      <div class="page-hero-content px-4">
+        <p id="h-eyebrow" class="text-xs font-medium tracking-[0.3em] text-white/65 uppercase mb-4 opacity-0">
+          ✦&ensp;Descubre Bolivia y el mundo&ensp;✦
+        </p>
+        <h1 id="h-title" class="text-white text-center mb-3 opacity-0"
+          style="font-family:var(--font-display);font-size:clamp(2.6rem,7vw,4.8rem);font-weight:600;line-height:1.0;">
+          Paquetes Turísticos
+        </h1>
+        <p id="h-sub" class="text-white/70 text-sm text-center opacity-0">
+          Experiencias diseñadas para cada tipo de viajero
+        </p>
+      </div>
+    </section>
+    <!-- End: Page Hero -->
+
+
+    <!-- ============================================================
+         Start: Breadcrumb
+    ============================================================ -->
+    <div class="breadcrumb">
+      <div class="max-w-6xl mx-auto px-5 flex items-center gap-2">
+        <a href="index.html">Inicio</a>
+        <span class="text-gray-300">/</span>
+        <span style="color:var(--primary);font-weight:500;">Paquetes Turísticos</span>
+      </div>
+    </div>
+    <!-- End: Breadcrumb -->
+
+
+    <!-- ============================================================
+         Start: Filter Bar (sticky)
+    ============================================================ -->
+    <div class="filter-bar-wrap" id="filter-bar">
+      <div class="max-w-6xl mx-auto">
+
+        <!-- Row 1: Duration + Type filters -->
+        <div class="flex flex-wrap items-center gap-3 mb-3">
+
+          <!-- Duración -->
+          <span class="filter-group-label">Duración</span>
+          <button class="filter-pill active" data-filter="duracion" data-value="todos"
+            onclick="setFilter('duracion','todos',this)">Todos</button>
+          <button class="filter-pill" data-filter="duracion" data-value="1dia"
+            onclick="setFilter('duracion','1dia',this)">1 día</button>
+          <button class="filter-pill" data-filter="duracion" data-value="1-3dias"
+            onclick="setFilter('duracion','1-3dias',this)">1 a 3 días</button>
+          <button class="filter-pill" data-filter="duracion" data-value="3mas"
+            onclick="setFilter('duracion','3mas',this)">+3 días</button>
+
+          <div class="w-px h-5 bg-gray-200 hidden md:block mx-1"></div>
+
+          <!-- Tipo -->
+          <span class="filter-group-label">Tipo</span>
+          <button class="filter-pill type-aventura" data-filter="tipo" data-value="aventura"
+            onclick="toggleType('aventura',this)">
+            <span
+              style="width:8px;height:8px;border-radius:9999px;background:#ef9f27;display:inline-block;flex-shrink:0;"></span>
+            Aventura
+          </button>
+          <button class="filter-pill type-cultural" data-filter="tipo" data-value="cultural"
+            onclick="toggleType('cultural',this)">
+            <span
+              style="width:8px;height:8px;border-radius:9999px;background:#1d9e75;display:inline-block;flex-shrink:0;"></span>
+            Cultural
+          </button>
+          <button class="filter-pill type-eco" data-filter="tipo" data-value="ecoturismo"
+            onclick="toggleType('ecoturismo',this)">
+            <span
+              style="width:8px;height:8px;border-radius:9999px;background:#639922;display:inline-block;flex-shrink:0;"></span>
+            Ecoturismo
+          </button>
+          <button class="filter-pill type-enoturismo" data-filter="tipo" data-value="urbano"
+            onclick="toggleType('urbano',this)">
+            <span
+              style="width:8px;height:8px;border-radius:9999px;background:#7f77dd;display:inline-block;flex-shrink:0;"></span>
+            Urbano
+          </button>
+
+          <!-- Clear + count -->
+          <div class="flex items-center gap-3 ml-auto">
+            <button class="clear-btn hidden" id="clear-btn" onclick="clearFilters()">✕ Limpiar</button>
+            <span class="results-count">
+              Mostrando <span id="count-shown">9</span> paquetes
+            </span>
+          </div>
+        </div>
+
+        <!-- Row 2: Destino filters -->
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="filter-group-label">Destino</span>
+          <button class="filter-pill" data-filter="destino" data-value="la-paz"
+            onclick="toggleDestino('la-paz',this)">La Paz</button>
+          <button class="filter-pill" data-filter="destino" data-value="uyuni"
+            onclick="toggleDestino('uyuni',this)">Uyuni</button>
+          <button class="filter-pill" data-filter="destino" data-value="copacabana"
+            onclick="toggleDestino('copacabana',this)">Copacabana</button>
+          <button class="filter-pill" data-filter="destino" data-value="sucre"
+            onclick="toggleDestino('sucre',this)">Sucre</button>
+          <button class="filter-pill" data-filter="destino" data-value="potosi"
+            onclick="toggleDestino('potosi',this)">Potosí</button>
+          <button class="filter-pill" data-filter="destino" data-value="rurrenabaque"
+            onclick="toggleDestino('rurrenabaque',this)">Rurrenabaque</button>
+          <button class="filter-pill" data-filter="destino" data-value="internacional"
+            onclick="toggleDestino('internacional',this)">Internacional</button>
+        </div>
+
+      </div>
+    </div>
+    <!-- End: Filter Bar -->
+
+
+    <!-- ============================================================
+         Start: Packages Grid
+    ============================================================ -->
+    <section class="py-14 px-5 bg-white">
+      <div class="max-w-6xl mx-auto">
+
+        <div id="cards-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+
+          <!-- Empty state (hidden by default) -->
+          <div class="empty-state" id="empty-state">
+            <div class="empty-icon">
+              <svg class="w-7 h-7" fill="none" stroke="var(--muted)" stroke-width="1.5" viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.35-4.35" />
+              </svg>
+            </div>
+            <h3 class="font-semibold text-base mb-1" style="color:var(--primary);">Sin resultados</h3>
+            <p class="text-sm text-gray-400 mb-4">No hay paquetes que coincidan con los filtros seleccionados.</p>
+            <button onclick="clearFilters()" class="text-sm font-medium underline underline-offset-4"
+              style="color:var(--primary);">
+              Limpiar filtros
+            </button>
+          </div>
+
+          <!-- ======== CARD 1 ======== -->
+          <article class="pkg-card" data-duracion="3mas" data-tipo="aventura" data-destinos="uyuni,la-paz"
+            data-aos="fade-up" data-aos-delay="0">
+            <div class="pkg-card-img">
+              <img src="https://images.unsplash.com/photo-1531968455001-5c5272a41129?w=600&q=80" alt="Salar de Uyuni" />
+              <span class="duration-badge">4D / 3N</span>
+              <span class="type-badge badge-aventura">Aventura</span>
+            </div>
+            <div class="pkg-card-body">
+              <p class="pkg-card-code">SB008</p>
+              <h2 class="pkg-card-title">Programa Bolivia SB008 (4D/3N)</h2>
+              <div class="dest-pills">
+                <span class="dest-pill">
+                  <svg width="10" height="10" fill="var(--gold)" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                  </svg>
+                  Uyuni
+                </span>
+                <span class="dest-pill">
+                  <svg width="10" height="10" fill="var(--gold)" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                  </svg>
+                  La Paz
+                </span>
+              </div>
+              <div class="incl-chips">
+                <span class="incl-chip">Hotel</span>
+                <span class="incl-chip">Guía</span>
+                <span class="incl-chip">Alimentación</span>
+                <span class="incl-chip">Transporte</span>
+                <span class="incl-chip">Vuelos</span>
+              </div>
+              <div class="pkg-card-footer">
+                <a href="paquete-detalle.html?id=sb008" class="btn-ver-mas">
+                  Ver más
+                  <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+                <button class="btn-wa-card" onclick="openWhatsApp('SB008 (4D/3N)')">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z" />
+                    <path
+                      d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.123 1.528 5.855L.057 23.5l5.796-1.52A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.37l-.36-.213-3.44.903.916-3.35-.233-.372A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z" />
+                  </svg>
+                  Consultar
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- ======== CARD 2 ======== -->
+          <article class="pkg-card" data-duracion="3mas" data-tipo="cultural" data-destinos="sucre,potosi,uyuni,la-paz"
+            data-aos="fade-up" data-aos-delay="80">
+            <div class="pkg-card-img">
+              <img src="https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=600&q=80" alt="Bolivia Cultural" />
+              <span class="duration-badge">15D / 14N</span>
+              <span class="type-badge badge-cultural">Cultural</span>
+            </div>
+            <div class="pkg-card-body">
+              <p class="pkg-card-code">SB007</p>
+              <h2 class="pkg-card-title">Programa Bolivia SB007 (15D/14N)</h2>
+              <div class="dest-pills">
+                <span class="dest-pill"><svg width="10" height="10" fill="var(--gold)" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                  </svg>Sucre</span>
+                <span class="dest-pill"><svg width="10" height="10" fill="var(--gold)" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                  </svg>Potosí</span>
+                <span class="dest-pill"><svg width="10" height="10" fill="var(--gold)" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                  </svg>Uyuni</span>
+              </div>
+              <div class="incl-chips">
+                <span class="incl-chip">Hotel</span>
+                <span class="incl-chip">Guía</span>
+                <span class="incl-chip">Transporte</span>
+              </div>
+              <div class="pkg-card-footer">
+                <a href="paquete-detalle.html?id=sb007" class="btn-ver-mas">
+                  Ver más <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+                <button class="btn-wa-card" onclick="openWhatsApp('SB007 (15D/14N)')">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z" />
+                    <path
+                      d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.123 1.528 5.855L.057 23.5l5.796-1.52A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.37l-.36-.213-3.44.903.916-3.35-.233-.372A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z" />
+                  </svg>
+                  Consultar
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- ======== CARD 3 ======== -->
+          <article class="pkg-card" data-duracion="3mas" data-tipo="aventura" data-destinos="la-paz,uyuni,copacabana"
+            data-aos="fade-up" data-aos-delay="160">
+            <div class="pkg-card-img">
+              <img src="https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?w=600&q=80"
+                alt="Camino de la Muerte" />
+              <span class="duration-badge">8D / 7N</span>
+              <span class="type-badge badge-aventura">Aventura</span>
+            </div>
+            <div class="pkg-card-body">
+              <p class="pkg-card-code">SB006</p>
+              <h2 class="pkg-card-title">Programa Bolivia SB006 (8D/7N)</h2>
+              <div class="dest-pills">
+                <span class="dest-pill"><svg width="10" height="10" fill="var(--gold)" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                  </svg>La Paz</span>
+                <span class="dest-pill"><svg width="10" height="10" fill="var(--gold)" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                  </svg>Uyuni</span>
+                <span class="dest-pill"><svg width="10" height="10" fill="var(--gold)" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                  </svg>Copacabana</span>
+              </div>
+              <div class="incl-chips">
+                <span class="incl-chip">Hotel</span>
+                <span class="incl-chip">Guía</span>
+                <span class="incl-chip">Alimentación</span>
+                <span class="incl-chip">Transporte</span>
+              </div>
+              <div class="pkg-card-footer">
+                <a href="paquete-detalle.html?id=sb006" class="btn-ver-mas">
+                  Ver más <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+                <button class="btn-wa-card" onclick="openWhatsApp('SB006 (8D/7N)')">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z" />
+                    <path
+                      d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.123 1.528 5.855L.057 23.5l5.796-1.52A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.37l-.36-.213-3.44.903.916-3.35-.233-.372A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z" />
+                  </svg>
+                  Consultar
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- ======== CARD 4 ======== -->
+          <article class="pkg-card" data-duracion="3mas" data-tipo="aventura" data-destinos="la-paz,copacabana,uyuni"
+            data-aos="fade-up" data-aos-delay="0">
+            <div class="pkg-card-img">
+              <img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=600&q=80" alt="Titicaca" />
+              <span class="duration-badge">7D / 6N</span>
+              <span class="type-badge badge-aventura">Aventura</span>
+            </div>
+            <div class="pkg-card-body">
+              <p class="pkg-card-code">SB005</p>
+              <h2 class="pkg-card-title">Programa Bolivia SB005 (7D/6N)</h2>
+              <div class="dest-pills">
+                <span class="dest-pill"><svg width="10" height="10" fill="var(--gold)" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                  </svg>La Paz</span>
+                <span class="dest-pill"><svg width="10" height="10" fill="var(--gold)" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                  </svg>Copacabana</span>
+                <span class="dest-pill"><svg width="10" height="10" fill="var(--gold)" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                  </svg>Uyuni</span>
+              </div>
+              <div class="incl-chips">
+                <span class="incl-chip">Hotel</span>
+                <span class="incl-chip">Guía</span>
+                <span class="incl-chip">Alimentación</span>
+                <span class="incl-chip">Transporte</span>
+              </div>
+              <div class="pkg-card-footer">
+                <a href="paquete-detalle.html?id=sb005" class="btn-ver-mas">
+                  Ver más <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+                <button class="btn-wa-card" onclick="openWhatsApp('SB005 (7D/6N)')">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z" />
+                    <path
+                      d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.123 1.528 5.855L.057 23.5l5.796-1.52A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.37l-.36-.213-3.44.903.916-3.35-.233-.372A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z" />
+                  </svg>
+                  Consultar
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- ======== CARD 5 ======== -->
+          <article class="pkg-card" data-duracion="3mas" data-tipo="urbano" data-destinos="la-paz,uyuni"
+            data-aos="fade-up" data-aos-delay="80">
+            <div class="pkg-card-img">
+              <img src="https://images.unsplash.com/photo-1531968455001-5c5272a41129?w=600&q=80" alt="La Paz" />
+              <span class="duration-badge">6D / 5N</span>
+              <span class="type-badge badge-urbano">Urbano</span>
+            </div>
+            <div class="pkg-card-body">
+              <p class="pkg-card-code">SB004</p>
+              <h2 class="pkg-card-title">Programa Bolivia SB004 (6D/5N)</h2>
+              <div class="dest-pills">
+                <span class="dest-pill"><svg width="10" height="10" fill="var(--gold)" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                  </svg>La Paz</span>
+                <span class="dest-pill"><svg width="10" height="10" fill="var(--gold)" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                  </svg>Uyuni</span>
+              </div>
+              <div class="incl-chips">
+                <span class="incl-chip">Hotel</span>
+                <span class="incl-chip">Guía</span>
+                <span class="incl-chip">Transporte</span>
+              </div>
+              <div class="pkg-card-footer">
+                <a href="paquete-detalle.html?id=sb004" class="btn-ver-mas">
+                  Ver más <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+                <button class="btn-wa-card" onclick="openWhatsApp('SB004 (6D/5N)')">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z" />
+                    <path
+                      d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.123 1.528 5.855L.057 23.5l5.796-1.52A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.37l-.36-.213-3.44.903.916-3.35-.233-.372A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z" />
+                  </svg>
+                  Consultar
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- ======== CARD 6 ======== -->
+          <article class="pkg-card" data-duracion="1-3dias" data-tipo="ecoturismo" data-destinos="rurrenabaque"
+            data-aos="fade-up" data-aos-delay="160">
+            <div class="pkg-card-img">
+              <img src="https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=600&q=80"
+                alt="Rurrenabaque Pampas" />
+              <span class="duration-badge">3D / 2N</span>
+              <span class="type-badge badge-eco">Ecoturismo</span>
+            </div>
+            <div class="pkg-card-body">
+              <p class="pkg-card-code">Pampas</p>
+              <h2 class="pkg-card-title">Pampas – Rurrenabaque (3D/2N)</h2>
+              <div class="dest-pills">
+                <span class="dest-pill"><svg width="10" height="10" fill="var(--gold)" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                  </svg>Rurrenabaque</span>
+                <span class="dest-pill"><svg width="10" height="10" fill="var(--gold)" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                  </svg>Beni</span>
+              </div>
+              <div class="incl-chips">
+                <span class="incl-chip">Alojamiento</span>
+                <span class="incl-chip">Guía</span>
+                <span class="incl-chip">Transporte</span>
+                <span class="incl-chip">Alimentación</span>
+              </div>
+              <div class="pkg-card-footer">
+                <a href="paquete-detalle.html?id=pampas" class="btn-ver-mas">
+                  Ver más <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+                <button class="btn-wa-card" onclick="openWhatsApp('Pampas Rurrenabaque (3D/2N)')">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z" />
+                    <path
+                      d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.123 1.528 5.855L.057 23.5l5.796-1.52A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.37l-.36-.213-3.44.903.916-3.35-.233-.372A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z" />
+                  </svg>
+                  Consultar
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- ======== CARD 7 ======== -->
+          <article class="pkg-card" data-duracion="1-3dias" data-tipo="aventura" data-destinos="uyuni"
+            data-aos="fade-up" data-aos-delay="0">
+            <div class="pkg-card-img">
+              <img src="https://images.unsplash.com/photo-1531968455001-5c5272a41129?w=600&q=80" alt="Uyuni" />
+              <span class="duration-badge">3D / 2N</span>
+              <span class="type-badge badge-aventura">Aventura</span>
+            </div>
+            <div class="pkg-card-body">
+              <p class="pkg-card-code">SB001</p>
+              <h2 class="pkg-card-title">Uyuni – Programa 3D/2N</h2>
+              <div class="dest-pills">
+                <span class="dest-pill"><svg width="10" height="10" fill="var(--gold)" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                  </svg>Uyuni</span>
+              </div>
+              <div class="incl-chips">
+                <span class="incl-chip">Hotel</span>
+                <span class="incl-chip">Guía</span>
+                <span class="incl-chip">Transporte</span>
+              </div>
+              <div class="pkg-card-footer">
+                <a href="paquete-detalle.html?id=sb001" class="btn-ver-mas">
+                  Ver más <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+                <button class="btn-wa-card" onclick="openWhatsApp('Uyuni 3D/2N')">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z" />
+                    <path
+                      d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.123 1.528 5.855L.057 23.5l5.796-1.52A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.37l-.36-.213-3.44.903.916-3.35-.233-.372A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z" />
+                  </svg>
+                  Consultar
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- ======== CARD 8 ======== -->
+          <article class="pkg-card" data-duracion="1-3dias" data-tipo="cultural" data-destinos="copacabana,la-paz"
+            data-aos="fade-up" data-aos-delay="80">
+            <div class="pkg-card-img">
+              <img src="https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=600&q=80" alt="Copacabana" />
+              <span class="duration-badge">3D / 2N</span>
+              <span class="type-badge badge-cultural">Cultural</span>
+            </div>
+            <div class="pkg-card-body">
+              <p class="pkg-card-code">SB002</p>
+              <h2 class="pkg-card-title">Copacabana (3D/2N)</h2>
+              <div class="dest-pills">
+                <span class="dest-pill"><svg width="10" height="10" fill="var(--gold)" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                  </svg>Copacabana</span>
+                <span class="dest-pill"><svg width="10" height="10" fill="var(--gold)" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                  </svg>La Paz</span>
+              </div>
+              <div class="incl-chips">
+                <span class="incl-chip">Hotel</span>
+                <span class="incl-chip">Guía</span>
+                <span class="incl-chip">Transporte</span>
+                <span class="incl-chip">Alimentación</span>
+              </div>
+              <div class="pkg-card-footer">
+                <a href="paquete-detalle.html?id=sb002" class="btn-ver-mas">
+                  Ver más <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+                <button class="btn-wa-card" onclick="openWhatsApp('Copacabana 3D/2N')">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z" />
+                    <path
+                      d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.123 1.528 5.855L.057 23.5l5.796-1.52A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.37l-.36-.213-3.44.903.916-3.35-.233-.372A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z" />
+                  </svg>
+                  Consultar
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- ======== CARD 9 ======== -->
+          <article class="pkg-card" data-duracion="3mas" data-tipo="cultural" data-destinos="sucre,potosi"
+            data-aos="fade-up" data-aos-delay="160">
+            <div class="pkg-card-img">
+              <img src="https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?w=600&q=80" alt="Sucre" />
+              <span class="duration-badge">4D / 3N</span>
+              <span class="type-badge badge-cultural">Cultural</span>
+            </div>
+            <div class="pkg-card-body">
+              <p class="pkg-card-code">SB003</p>
+              <h2 class="pkg-card-title">Sucre & Potosí (4D/3N)</h2>
+              <div class="dest-pills">
+                <span class="dest-pill"><svg width="10" height="10" fill="var(--gold)" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                  </svg>Sucre</span>
+                <span class="dest-pill"><svg width="10" height="10" fill="var(--gold)" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                  </svg>Potosí</span>
+              </div>
+              <div class="incl-chips">
+                <span class="incl-chip">Hotel</span>
+                <span class="incl-chip">Guía</span>
+                <span class="incl-chip">Transporte</span>
+              </div>
+              <div class="pkg-card-footer">
+                <a href="paquete-detalle.html?id=sb003" class="btn-ver-mas">
+                  Ver más <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+                <button class="btn-wa-card" onclick="openWhatsApp('Sucre & Potosí 4D/3N')">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z" />
+                    <path
+                      d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.123 1.528 5.855L.057 23.5l5.796-1.52A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.37l-.36-.213-3.44.903.916-3.35-.233-.372A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z" />
+                  </svg>
+                  Consultar
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Load more -->
+        <div class="text-center mt-14">
+          <button class="btn-load-more hidden" id="load-more-btn" onclick="loadMore()">
+            Ver Más Paquetes
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </section>
+    <!-- End: Packages Grid -->
+
+
+    <!-- ============================================================
+         Start: Newsletter CTA
+    ============================================================ -->
+    <section class="newsletter-section px-5">
+      <div class="relative z-10 hidden lg:block max-w-xs ml-16 xl:ml-24 px-4" data-aos="fade-right">
+        <h2 class="text-white text-4xl font-semibold leading-tight mb-3" style="font-family:var(--font-display);">
+          Bolivia te<br /><em style="color:var(--gold);">espera</em>
+        </h2>
+        <p class="text-white/65 text-sm leading-relaxed">El altiplano, los salares y la selva amazónica en un solo
+          destino.</p>
+      </div>
+      <div
+        class="relative z-10 bg-white/95 backdrop-blur-sm rounded-2xl p-8 max-w-sm w-full shadow-2xl my-16 mr-4 md:mr-12 xl:mr-24"
+        data-aos="fade-left">
+        <h2 class="text-2xl font-semibold mb-1" style="color:var(--primary);">
+          ¿<strong class="font-bold">Listo</strong> para tu<br />próxima <strong class="font-bold">Aventura?</strong>
+        </h2>
+        <div class="flex mt-6 rounded-full overflow-hidden border border-gray-200 shadow-sm">
+          <input type="email" placeholder="Ingresa tu email"
+            class="flex-1 px-4 py-3 text-sm outline-none bg-white placeholder-gray-400 min-w-0" />
+          <button
+            class="px-5 py-3 text-white text-sm font-semibold whitespace-nowrap rounded-full hover:opacity-90 transition-opacity"
+            style="background:var(--primary);">Suscríbete</button>
+        </div>
+        <p class="text-xs text-gray-500 mt-4 leading-relaxed">Sé el primero en conocer las novedades, destinos en
+          tendencia y experiencias personalizadas.</p>
+      </div>
+    </section>
+    <!-- End: Newsletter CTA -->
+
+  </main>
+
+
+  <!-- ============================================================
+       Start: Footer
+  ============================================================ -->
+  <footer class="text-white px-5 pt-16 pb-8">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 pb-12 border-b border-white/15">
+      <div data-aos="fade-up" data-aos-delay="0">
+        <h4 class="font-bold text-[11px] uppercase tracking-[0.2em] mb-6 text-white/45">Contáctanos</h4>
+        <ul class="space-y-4 text-sm">
+          <li class="flex items-center gap-3 text-white/75 hover:text-white transition-colors cursor-pointer">
+            <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0"><svg
+                class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+              </svg></div>
+            Ver en Mapa
+          </li>
+          <li class="flex items-center gap-3 text-white/75 hover:text-white transition-colors">
+            <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0"><svg
+                class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C9.61 21 3 14.39 3 6a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z" />
+              </svg></div>
+            +591 69846888
+          </li>
+          <li class="flex items-center gap-3 text-white/75 hover:text-white transition-colors">
+            <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0"><svg
+                class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+              </svg></div>
+            scatur.bolivian@gmail.com
+          </li>
+        </ul>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="100">
+        <h4 class="font-bold text-[11px] uppercase tracking-[0.2em] mb-6 text-white/45">Servicios</h4>
+        <ul class="space-y-3 text-sm">
+          <li><a href="paquetes.html" class="footer-link font-semibold text-white">Paquetes Turísticos</a></li>
+          <li><a href="index.html#servicios" class="footer-link">Boletos Aéreos</a></li>
+          <li><a href="index.html#servicios" class="footer-link">Cruceros</a></li>
+          <li><a href="index.html#servicios" class="footer-link">Asistencia al Viajero</a></li>
+          <li><a href="index.html#servicios" class="footer-link">Asesoramiento en Visa</a></li>
+        </ul>
+      </div>
+      <div class="flex flex-col items-start md:items-end gap-5" data-aos="fade-up" data-aos-delay="200">
+        <div class="text-right">
+          <div class="text-4xl font-bold" style="font-family:var(--font-display);">scatur</div>
+          <div class="text-[10px] font-light tracking-[0.25em] text-white/45 uppercase mt-0.5">Experiencias y Destinos
+          </div>
+        </div>
+        <div class="flex flex-col items-start md:items-end gap-1.5">
+          <div
+            class="w-9 h-9 rounded-full border border-white/25 flex items-center justify-center text-white font-bold text-xs">
+            BO</div>
+          <span class="font-semibold tracking-widest text-sm">BOLIVIA</span>
+          <span class="text-[11px] text-white/45 italic">corazón del sur</span>
+        </div>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto pt-8 flex flex-col sm:flex-row items-center justify-between gap-5">
+      <div class="flex items-center gap-3">
+        <a href="https://wa.me/59169846888" target="_blank" class="f-social"><svg class="w-4 h-4" fill="currentColor"
+            viewBox="0 0 24 24">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z" />
+            <path
+              d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.123 1.528 5.855L.057 23.5l5.796-1.52A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.37l-.36-.213-3.44.903.916-3.35-.233-.372A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z" />
+          </svg></a>
+        <a href="#" class="f-social"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+          </svg></a>
+        <a href="#" class="f-social"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8"
+            viewBox="0 0 24 24">
+            <rect x="2" y="2" width="20" height="20" rx="5" />
+            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+          </svg></a>
+        <a href="#" class="f-social"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.81a8.18 8.18 0 004.78 1.52V6.88a4.85 4.85 0 01-1.01-.19z" />
+          </svg></a>
+      </div>
+      <p class="text-xs text-white/35 text-center sm:text-right">
+        Copyright © 2026 &nbsp;·&nbsp;
+        <a href="#" class="hover:text-white/70 transition-colors">Términos y Condiciones</a>
+        &nbsp;·&nbsp;
+        <a href="#" class="hover:text-white/70 transition-colors">Políticas y Privacidad</a>
+      </p>
+    </div>
+  </footer>
+  <!-- End: Footer -->
+
+
+  <!-- ============================================================
+       JavaScript
+  ============================================================ -->
+  <script>
+    // ---- AOS ----
+    AOS.init({ duration: 650, easing: 'ease-out-cubic', once: true, offset: 40 });
+
+    // ---- GSAP hero entrance ----
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.timeline({ delay: 0.2 })
+      .fromTo('#h-eyebrow', { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: .6, ease: 'power3.out' })
+      .fromTo('#h-title', { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: .9, ease: 'power3.out' }, '-=.3')
+      .fromTo('#h-sub', { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: .6, ease: 'power2.out' }, '-=.4');
+
+    gsap.to('#hero-bg', {
+      yPercent: 30, ease: 'none',
+      scrollTrigger: { trigger: '.page-hero', start: 'top top', end: 'bottom top', scrub: true }
+    });
+
+    // ---- Navbar ----
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+      // Filter bar stuck shadow
+      const fb = document.getElementById('filter-bar');
+      fb.classList.toggle('stuck', window.scrollY > 200);
+    }, { passive: true });
+
+    // ---- Mobile menu ----
+    document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+
+    // ---- Filter state ----
+    let activeDuracion = 'todos';
+    let activeTypes = new Set();   // multi-select
+    let activeDestinos = new Set();   // multi-select
+
+    // Get all cards
+    const allCards = () => document.querySelectorAll('.pkg-card');
+
+    function updateCards() {
+      let shown = 0;
+      allCards().forEach(card => {
+        const dur = card.dataset.duracion;
+        const tipo = card.dataset.tipo;
+        const destinos = card.dataset.destinos.split(',');
+
+        const matchDur = activeDuracion === 'todos' || dur === activeDuracion;
+        const matchType = activeTypes.size === 0 || activeTypes.has(tipo);
+        const matchDest = activeDestinos.size === 0 || destinos.some(d => activeDestinos.has(d));
+
+        const visible = matchDur && matchType && matchDest;
+        card.style.display = visible ? '' : 'none';
+        if (visible) shown++;
+      });
+
+      document.getElementById('count-shown').textContent = shown;
+
+      // Empty state
+      const empty = document.getElementById('empty-state');
+      empty.classList.toggle('show', shown === 0);
+
+      // Clear button visibility
+      const hasFilters = activeDuracion !== 'todos' || activeTypes.size > 0 || activeDestinos.size > 0;
+      document.getElementById('clear-btn').classList.toggle('hidden', !hasFilters);
+    }
+
+    function setFilter(group, value, btn) {
+      activeDuracion = value;
+      // Update pill styles for duration group
+      document.querySelectorAll(`[data-filter="duracion"]`).forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      updateCards();
+    }
+
+    function toggleType(value, btn) {
+      if (activeTypes.has(value)) {
+        activeTypes.delete(value);
+        btn.classList.remove('active');
+      } else {
+        activeTypes.add(value);
+        btn.classList.add('active');
+      }
+      updateCards();
+    }
+
+    function toggleDestino(value, btn) {
+      if (activeDestinos.has(value)) {
+        activeDestinos.delete(value);
+        btn.classList.remove('active');
+      } else {
+        activeDestinos.add(value);
+        btn.classList.add('active');
+      }
+      updateCards();
+    }
+
+    function clearFilters() {
+      activeDuracion = 'todos';
+      activeTypes.clear();
+      activeDestinos.clear();
+      // Reset all pills
+      document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+      document.querySelector('[data-value="todos"]').classList.add('active');
+      updateCards();
+    }
+
+    // ---- WhatsApp helper ----
+    function openWhatsApp(packageName) {
+      const msg = encodeURIComponent(`Hola! Me interesa el paquete: ${packageName}. ¿Podrían darme más información?`);
+      window.open(`https://wa.me/59169846888?text=${msg}`, '_blank');
+    }
+
+    // ---- Initial count ----
+    updateCards();
+  </script>
+
+</body>
+
+</html>

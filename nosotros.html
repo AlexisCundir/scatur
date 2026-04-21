@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre Nosotros – Scatur</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css">
+
+  <script>tailwind.config = { theme: { extend: { colors: { primary: '#1a3a5c', accent: '#e63946', gold: '#c9a84c' } } } }</script>
+</head>
+
+<body class="bg-white antialiased overflow-x-hidden">
+
+  <!-- ============================================================
+       Start: Navbar (idéntico al index v2)
+  ============================================================ -->
+  <header class="fixed top-0 left-0 right-0 z-50 px-4 pt-4">
+    <nav id="navbar" class="navbar-pill max-w-6xl mx-auto px-6 py-2.5 flex items-center justify-between">
+
+      <a href="index.html" class="flex items-center gap-2 shrink-0">
+        <span class="text-2xl font-bold tracking-tight" style="color:var(--primary);font-family:var(--font-display);">
+          scatur
+        </span>
+        <span class="text-[9px] text-gray-400 uppercase tracking-[0.2em] hidden sm:block leading-none mt-1">tour
+          operator</span>
+      </a>
+
+      <ul class="hidden md:flex items-center gap-0.5 text-sm font-medium" style="color:var(--primary);">
+        <li class="dropdown">
+          <button class="flex items-center gap-1.5 px-4 py-2.5 rounded-full hover:bg-gray-100 transition-colors">
+            Servicios
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="dropdown-menu">
+            <a href="index.html#servicios"
+              class="flex items-center gap-3 px-5 py-3.5 text-sm hover:bg-blue-50 transition-colors group"
+              style="color:var(--primary);">
+              <svg class="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity" fill="none"
+                stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <circle cx="15" cy="15" r="2" />
+              </svg>Paquetes Turísticos
+            </a>
+            <a href="index.html#servicios"
+              class="flex items-center gap-3 px-5 py-3.5 text-sm hover:bg-blue-50 transition-colors group"
+              style="color:var(--primary);">
+              <svg class="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity" fill="none"
+                stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <path
+                  d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" />
+              </svg>Boletos Aéreos
+            </a>
+            <a href="index.html#servicios"
+              class="flex items-center gap-3 px-5 py-3.5 text-sm hover:bg-blue-50 transition-colors group"
+              style="color:var(--primary);">
+              <svg class="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity" fill="none"
+                stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <path d="M2 20h20M5 20V8l7-5 7 5v12" />
+              </svg>Cruceros
+            </a>
+            <a href="index.html#servicios"
+              class="flex items-center gap-3 px-5 py-3.5 text-sm hover:bg-blue-50 transition-colors group"
+              style="color:var(--primary);">
+              <svg class="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity" fill="none"
+                stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>Asistencia al Viajero
+            </a>
+            <a href="index.html#servicios"
+              class="flex items-center gap-3 px-5 py-3.5 text-sm hover:bg-blue-50 transition-colors group"
+              style="color:var(--primary);">
+              <svg class="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity" fill="none"
+                stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <rect x="2" y="5" width="20" height="14" rx="2" />
+                <path d="M2 10h20" />
+              </svg>Asesoramiento en Visa
+            </a>
+          </div>
+        </li>
+        <li><a href="contacto.html" class="px-4 py-2.5 rounded-full hover:bg-gray-100 transition-colors">Contáctanos</a>
+        </li>
+        <li>
+          <a href="nosotros.html" class="px-4 py-2.5 rounded-full transition-colors font-semibold"
+            style="background:var(--primary);color:white;">Sobre Nosotros</a>
+        </li>
+        <li class="dropdown ml-1">
+          <button
+            class="flex items-center gap-2 px-4 py-2.5 rounded-full border border-gray-200 hover:bg-gray-100 transition-colors">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20" />
+            </svg>
+            Spanish
+            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="dropdown-menu">
+            <a href="#" class="block px-5 py-3.5 text-sm hover:bg-gray-50 transition-colors"
+              style="color:var(--primary);">Español</a>
+            <a href="#" class="block px-5 py-3.5 text-sm hover:bg-gray-50 transition-colors"
+              style="color:var(--primary);">English</a>
+          </div>
+        </li>
+      </ul>
+
+      <button id="mobile-menu-btn" class="md:hidden p-2 rounded-full hover:bg-gray-100 transition-colors"
+        style="color:var(--primary);">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </nav>
+
+    <div id="mobile-menu"
+      class="hidden md:hidden navbar-pill max-w-6xl mx-auto mt-2 px-6 py-5 flex flex-col gap-4 text-sm font-medium"
+      style="color:var(--primary);">
+      <a href="index.html#servicios" class="hover:opacity-70 transition-opacity">Servicios</a>
+      <a href="contacto.html" class="hover:opacity-70 transition-opacity">Contáctanos</a>
+      <a href="nosotros.html" class="hover:opacity-70 transition-opacity font-semibold">Sobre Nosotros</a>
+    </div>
+  </header>
+  <!-- End: Navbar -->
+
+
+  <main>
+
+    <!-- ============================================================
+         Start: Page Hero
+    ============================================================ -->
+    <section class="page-hero">
+      <div class="page-hero-bg" id="hero-bg"></div>
+      <div class="page-hero-overlay"></div>
+
+      <div class="page-hero-content px-4 py-40">
+        <p id="h-eyebrow" class="text-xs font-medium tracking-[0.3em] text-white/65 uppercase mb-4 opacity-0">
+          ✦&ensp;Conoce nuestro equipo&ensp;✦
+        </p>
+        <h1 id="h-title" class="text-white text-center mb-4 opacity-0"
+          style="font-family:var(--font-display);font-size:clamp(2.8rem,7vw,5rem);font-weight:600;line-height:1.0;">
+          Sobre Nosotros
+        </h1>
+        <p id="h-sub" class="text-white/70 text-sm text-center mb-8 opacity-0">Conecta con nuestros operadores</p>
+        <div id="h-ctas" class="flex items-center justify-center gap-4 flex-wrap opacity-0">
+          <a href="https://wa.me/59169846888" target="_blank" class="btn-primary">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z" />
+              <path
+                d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.123 1.528 5.855L.057 23.5l5.796-1.52A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.37l-.36-.213-3.44.903.916-3.35-.233-.372A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z" />
+            </svg>
+            WhatsApp
+          </a>
+          <a href="contacto.html" class="btn-ghost">Contáctanos</a>
+        </div>
+      </div>
+    </section>
+    <!-- End: Page Hero -->
+
+
+    <!-- ============================================================
+         Start: Breadcrumb
+    ============================================================ -->
+    <div class="breadcrumb">
+      <div class="max-w-6xl mx-auto px-5 flex items-center gap-2">
+        <a href="index.html">Inicio</a>
+        <span class="text-gray-300">/</span>
+        <span style="color:var(--primary);font-weight:500;">Sobre Nosotros</span>
+      </div>
+    </div>
+    <!-- End: Breadcrumb -->
+
+
+    <!-- ============================================================
+         Start: Wave Section — Quiénes somos + Misión + Visión + Qué ofrecemos
+    ============================================================ -->
+    <section class="wave-section">
+      <!-- Content -->
+      <div class="max-w-4xl mx-auto px-6 md:px-12 py-24 relative z-10 space-y-24">
+
+        <!-- Block: Quiénes somos -->
+        <div class="content-block" data-aos="fade-up">
+          <div>
+            <h2 class="text-white mb-5"
+              style="font-family:var(--font-display);font-size:clamp(2rem,4vw,2.8rem);font-weight:600;line-height:1.1;">
+              ¿Quiénes somos?
+            </h2>
+            <p class="text-white/75 text-sm leading-relaxed max-w-xl">
+              Fundada en el 2004 en la ciudad de La Paz, SCATUR es una empresa de viajes y turismo comprometida con el
+              servicio de alta calidad para nuestros clientes. Con una amplia experiencia en el rubro, SCATUR se
+              distingue por su enfoque en la excelencia y en la atención personalizada.
+            </p>
+          </div>
+        </div>
+
+        <!-- Block: Nuestra Misión -->
+        <div class="content-block" data-aos="fade-up" data-aos-delay="60">
+          <div>
+            <h2 class="text-white mb-5"
+              style="font-family:var(--font-display);font-size:clamp(2rem,4vw,2.8rem);font-weight:600;line-height:1.1;">
+              Nuestra Misión
+            </h2>
+            <p class="text-white/75 text-sm leading-relaxed max-w-xl">
+              En SCATUR, nuestro propósito es brindar servicios turísticos de excelencia que no solo respondan a las
+              necesidades de nuestros clientes, sino que también contribuyan al desarrollo de Bolivia. Nos esforzamos en
+              mantener altos estándares de calidad, innovación y eficiencia, y en garantizar la sostenibilidad en cada
+              uno de nuestros destinos nacionales e internacionales.
+            </p>
+          </div>
+        </div>
+
+        <!-- Block: Nuestra Visión -->
+        <div class="content-block" data-aos="fade-up" data-aos-delay="60">
+          <div>
+            <h2 class="text-white mb-5"
+              style="font-family:var(--font-display);font-size:clamp(2rem,4vw,2.8rem);font-weight:600;line-height:1.1;">
+              Nuestra Visión
+            </h2>
+            <p class="text-white/75 text-sm leading-relaxed max-w-xl">
+              Nuestro objetivo es consolidarnos como una empresa turística competitiva y eficiente en el mercado
+              nacional e internacional. En el largo plazo, aspiramos a ser pioneros en el sector turístico, colaborando
+              a través de diversos proyectos en el desarrollo de las comunidades locales, y contribuyendo al crecimiento
+              del turismo sostenible.
+            </p>
+          </div>
+        </div>
+
+        <!-- Block: Qué ofrecemos -->
+        <div class="content-block" data-aos="fade-up" data-aos-delay="60">
+          <div>
+            <h2 class="text-white mb-5"
+              style="font-family:var(--font-display);font-size:clamp(2rem,4vw,2.8rem);font-weight:600;line-height:1.1;">
+              ¿Qué ofrecemos?
+            </h2>
+            <p class="text-white/75 text-sm leading-relaxed max-w-xl">
+              Como operadores directos en el destino Bolivia y en otros destinos globales, nos especializamos en brindar
+              servicios de boletaje nacional e internacional, asesoramiento en visas, cruceros, seguros de asistencia al
+              viajero, y paquetes turísticos que incluyen destinos dentro de Bolivia. Nuestro compromiso se basa en
+              ofrecer experiencias únicas e inolvidables, ajustadas a cada cliente.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+    <!-- End: Wave Section -->
+
+
+    <!-- ============================================================
+         Start: Values / Pillars Section
+    ============================================================ -->
+    <section class="py-24 px-5 bg-white">
+      <div class="max-w-6xl mx-auto">
+
+        <div class="text-center mb-14">
+          <p class="section-label justify-center mb-4" data-aos="fade-up">Nuestros Pilares</p>
+          <h2 class="heading-display text-4xl md:text-5xl font-semibold" data-aos="fade-up" data-aos-delay="80">
+            Lo que nos <strong class="font-bold">define</strong>
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <div class="value-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="value-icon">
+              <svg class="w-7 h-7" fill="none" stroke="var(--primary)" stroke-width="1.8" viewBox="0 0 24 24">
+                <path d="M12 22C6.5 22 2 17.5 2 12S6.5 2 12 2s10 4.5 10 10-4.5 10-10 10z" />
+                <path d="M8 12l3 3 5-5" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-base mb-2" style="color:var(--primary);">Excelencia</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">Nos comprometemos a superar las expectativas en cada
+              detalle del viaje.</p>
+          </div>
+
+          <div class="value-card" data-aos="fade-up" data-aos-delay="80">
+            <div class="value-icon">
+              <svg class="w-7 h-7" fill="none" stroke="var(--primary)" stroke-width="1.8" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-base mb-2" style="color:var(--primary);">Alcance Global</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">Conectamos a Bolivia con el mundo a través de destinos
+              nacionales e internacionales.</p>
+          </div>
+
+          <div class="value-card" data-aos="fade-up" data-aos-delay="160">
+            <div class="value-icon">
+              <svg class="w-7 h-7" fill="none" stroke="var(--primary)" stroke-width="1.8" viewBox="0 0 24 24">
+                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-base mb-2" style="color:var(--primary);">Servicio Personalizado</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">Cada cliente es único. Diseñamos experiencias adaptadas a
+              sus necesidades.</p>
+          </div>
+
+          <div class="value-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="value-icon">
+              <svg class="w-7 h-7" fill="none" stroke="var(--primary)" stroke-width="1.8" viewBox="0 0 24 24">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-base mb-2" style="color:var(--primary);">Confianza & Seguridad</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">Más de 20 años de trayectoria respaldan cada servicio que
+              brindamos.</p>
+          </div>
+
+          <div class="value-card" data-aos="fade-up" data-aos-delay="80">
+            <div class="value-icon">
+              <svg class="w-7 h-7" fill="none" stroke="var(--primary)" stroke-width="1.8" viewBox="0 0 24 24">
+                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                <polyline points="9 22 9 12 15 12 15 22" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-base mb-2" style="color:var(--primary);">Raíces Bolivianas</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">Orgullosamente locales, con conocimiento profundo de cada
+              rincón del país.</p>
+          </div>
+
+          <div class="value-card" data-aos="fade-up" data-aos-delay="160">
+            <div class="value-icon">
+              <svg class="w-7 h-7" fill="none" stroke="var(--primary)" stroke-width="1.8" viewBox="0 0 24 24">
+                <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9" />
+                <path d="M12 3v9l5 5" />
+                <path d="M18 2l4 4-4 4" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-base mb-2" style="color:var(--primary);">Turismo Sostenible</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">Contribuimos al desarrollo de comunidades locales y al
+              cuidado del medio ambiente.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- End: Values Section -->
+
+
+    <!-- ============================================================
+         Start: Stats Bar
+    ============================================================ -->
+    <div style="background:linear-gradient(135deg,var(--primary-dark),var(--primary));padding:28px 20px;">
+      <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-white">
+        <div data-aos="fade-up" data-aos-delay="0">
+          <div class="text-3xl font-bold mb-1" style="font-family:var(--font-display);">2004</div>
+          <div class="text-xs text-white/55 uppercase tracking-widest">Fundada en</div>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="100">
+          <div class="text-3xl font-bold mb-1" style="font-family:var(--font-display);">+500</div>
+          <div class="text-xs text-white/55 uppercase tracking-widest">Viajeros felices</div>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="200">
+          <div class="text-3xl font-bold mb-1" style="font-family:var(--font-display);">15+</div>
+          <div class="text-xs text-white/55 uppercase tracking-widest">Destinos</div>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="300">
+          <div class="text-3xl font-bold mb-1" style="font-family:var(--font-display);">100%</div>
+          <div class="text-xs text-white/55 uppercase tracking-widest">Satisfacción</div>
+        </div>
+      </div>
+    </div>
+    <!-- End: Stats Bar -->
+
+
+    <!-- ============================================================
+         Start: Team Section
+    ============================================================ -->
+    <section class="py-24 px-5" style="background:var(--off-white);">
+      <div class="max-w-6xl mx-auto">
+
+        <div class="text-center mb-14">
+          <p class="section-label justify-center mb-4" data-aos="fade-up">Nuestro Equipo</p>
+          <h2 class="heading-display text-4xl md:text-5xl font-semibold" data-aos="fade-up" data-aos-delay="80">
+            Las personas detrás<br /><strong class="font-bold">de cada aventura</strong>
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          <article class="team-card bg-white" data-aos="fade-up" data-aos-delay="0">
+            <div class="team-card-img">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80" alt="Director" />
+            </div>
+            <div class="p-6">
+              <div class="inline-block text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-3"
+                style="background:var(--card-bg);color:var(--primary);">Director</div>
+              <h3 class="font-bold text-base mb-1" style="color:var(--primary);">Carlos Mamani</h3>
+              <p class="text-xs text-gray-400 mb-3">La Paz, Bolivia</p>
+              <p class="text-sm text-gray-500 leading-relaxed">Fundador y visionario de SCATUR. Con más de 20 años en
+                turismo boliviano.</p>
+            </div>
+          </article>
+
+          <article class="team-card bg-white" data-aos="fade-up" data-aos-delay="100">
+            <div class="team-card-img">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80" alt="Operaciones" />
+            </div>
+            <div class="p-6">
+              <div class="inline-block text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-3"
+                style="background:var(--card-bg);color:var(--primary);">Operaciones</div>
+              <h3 class="font-bold text-base mb-1" style="color:var(--primary);">María Quispe</h3>
+              <p class="text-xs text-gray-400 mb-3">La Paz, Bolivia</p>
+              <p class="text-sm text-gray-500 leading-relaxed">Especialista en logística y coordinación de paquetes
+                turísticos nacionales.</p>
+            </div>
+          </article>
+
+          <article class="team-card bg-white" data-aos="fade-up" data-aos-delay="200">
+            <div class="team-card-img">
+              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80" alt="Guía" />
+            </div>
+            <div class="p-6">
+              <div class="inline-block text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-3"
+                style="background:var(--card-bg);color:var(--primary);">Guía Senior</div>
+              <h3 class="font-bold text-base mb-1" style="color:var(--primary);">Jorge Flores</h3>
+              <p class="text-xs text-gray-400 mb-3">La Paz, Bolivia</p>
+              <p class="text-sm text-gray-500 leading-relaxed">Guía certificado con especialización en Uyuni, Tiwanaku y
+                el Lago Titicaca.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+    <!-- End: Team Section -->
+
+
+    <!-- ============================================================
+         Start: Newsletter CTA (idéntico al index v2)
+    ============================================================ -->
+    <section class="newsletter-section px-5">
+      <div class="relative z-10 hidden lg:block max-w-xs ml-16 xl:ml-24 px-4" data-aos="fade-right">
+        <h2 class="text-white text-4xl font-semibold leading-tight mb-3" style="font-family:var(--font-display);">
+          Bolivia te<br /><em style="color:var(--gold);">espera</em>
+        </h2>
+        <p class="text-white/65 text-sm leading-relaxed">El altiplano, los salares y la selva amazónica en un solo
+          destino.</p>
+      </div>
+
+      <div
+        class="relative z-10 bg-white/95 backdrop-blur-sm rounded-2xl p-8 max-w-sm w-full shadow-2xl my-16 mr-4 md:mr-12 xl:mr-24"
+        data-aos="fade-left">
+        <h2 class="text-2xl font-semibold mb-1" style="color:var(--primary);">
+          ¿<strong class="font-bold">Listo</strong> para tu<br />próxima <strong class="font-bold">Aventura?</strong>
+        </h2>
+        <div class="flex mt-6 rounded-full overflow-hidden border border-gray-200 shadow-sm">
+          <input type="email" placeholder="Ingresa tu email"
+            class="flex-1 px-4 py-3 text-sm outline-none bg-white placeholder-gray-400 min-w-0" />
+          <button
+            class="px-5 py-3 text-white text-sm font-semibold whitespace-nowrap rounded-full hover:opacity-90 transition-opacity"
+            style="background:var(--primary);">Suscríbete</button>
+        </div>
+        <p class="text-xs text-gray-500 mt-4 leading-relaxed">
+          Sé el primero en conocer las novedades, destinos en tendencia y experiencias personalizadas.
+        </p>
+      </div>
+    </section>
+    <!-- End: Newsletter CTA -->
+
+  </main>
+
+
+  <!-- ============================================================
+       Start: Footer (idéntico al index v2)
+  ============================================================ -->
+  <footer class="text-white px-5 pt-16 pb-8">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 pb-12 border-b border-white/15">
+
+      <div data-aos="fade-up" data-aos-delay="0">
+        <h4 class="font-bold text-[11px] uppercase tracking-[0.2em] mb-6 text-white/45">Contáctanos</h4>
+        <ul class="space-y-4 text-sm">
+          <li class="flex items-center gap-3 text-white/75 hover:text-white transition-colors cursor-pointer">
+            <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+              </svg>
+            </div>Ver en Mapa
+          </li>
+          <li class="flex items-center gap-3 text-white/75 hover:text-white transition-colors">
+            <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C9.61 21 3 14.39 3 6a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z" />
+              </svg>
+            </div>+591 69846888
+          </li>
+          <li class="flex items-center gap-3 text-white/75 hover:text-white transition-colors">
+            <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+              </svg>
+            </div>scatur.bolivian@gmail.com
+          </li>
+        </ul>
+      </div>
+
+      <div data-aos="fade-up" data-aos-delay="100">
+        <h4 class="font-bold text-[11px] uppercase tracking-[0.2em] mb-6 text-white/45">Servicios</h4>
+        <ul class="space-y-3 text-sm">
+          <li><a href="index.html#servicios" class="footer-link">Paquetes Turísticos</a></li>
+          <li><a href="index.html#servicios" class="footer-link">Boletos Aéreos</a></li>
+          <li><a href="index.html#servicios" class="footer-link">Cruceros</a></li>
+          <li><a href="index.html#servicios" class="footer-link">Asistencia al Viajero</a></li>
+          <li><a href="index.html#servicios" class="footer-link">Asesoramiento en Visa</a></li>
+        </ul>
+      </div>
+
+      <div class="flex flex-col items-start md:items-end gap-5" data-aos="fade-up" data-aos-delay="200">
+        <div class="text-right">
+          <div class="text-4xl font-bold" style="font-family:var(--font-display);">
+            scatur
+          </div>
+          <div class="text-[10px] font-light tracking-[0.25em] text-white/45 uppercase mt-0.5">Experiencias y Destinos
+          </div>
+        </div>
+        <div class="flex flex-col items-start md:items-end gap-1.5">
+          <div
+            class="w-9 h-9 rounded-full border border-white/25 flex items-center justify-center text-white font-bold text-xs">
+            BO</div>
+          <span class="font-semibold tracking-widest text-sm">BOLIVIA</span>
+          <span class="text-[11px] text-white/45 italic">corazón del sur</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="max-w-6xl mx-auto pt-8 flex flex-col sm:flex-row items-center justify-between gap-5">
+      <div class="flex items-center gap-3">
+        <a href="https://wa.me/59169846888" target="_blank" class="f-social"><svg class="w-4 h-4" fill="currentColor"
+            viewBox="0 0 24 24">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z" />
+            <path
+              d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.123 1.528 5.855L.057 23.5l5.796-1.52A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.37l-.36-.213-3.44.903.916-3.35-.233-.372A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z" />
+          </svg></a>
+        <a href="#" class="f-social"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+          </svg></a>
+        <a href="#" class="f-social"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8"
+            viewBox="0 0 24 24">
+            <rect x="2" y="2" width="20" height="20" rx="5" />
+            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+          </svg></a>
+        <a href="#" class="f-social"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.81a8.18 8.18 0 004.78 1.52V6.88a4.85 4.85 0 01-1.01-.19z" />
+          </svg></a>
+      </div>
+      <p class="text-xs text-white/35 text-center sm:text-right">
+        Copyright © 2026 &nbsp;·&nbsp;
+        <a href="#" class="hover:text-white/70 transition-colors">Términos y Condiciones</a>
+        &nbsp;·&nbsp;
+        <a href="#" class="hover:text-white/70 transition-colors">Políticas y Privacidad</a>
+      </p>
+    </div>
+  </footer>
+  <!-- End: Footer -->
+
+
+  <!-- ============================================================
+       JavaScript
+  ============================================================ -->
+  <script>
+    AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 60 });
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Hero stagger
+    gsap.timeline({ delay: 0.2 })
+      .fromTo('#h-eyebrow', { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: .65, ease: 'power3.out' })
+      .fromTo('#h-title', { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: .9, ease: 'power3.out' }, '-=.3')
+      .fromTo('#h-sub', { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: .6, ease: 'power2.out' }, '-=.4')
+      .fromTo('#h-ctas', { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: .6, ease: 'power2.out' }, '-=.4');
+
+    // Parallax hero bg
+    gsap.to('#hero-bg', {
+      yPercent: 30, ease: 'none',
+      scrollTrigger: { trigger: '.page-hero', start: 'top top', end: 'bottom top', scrub: true }
+    });
+
+    // Navbar
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
+
+    // Mobile menu
+    document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+  </script>
+
+</body>
+
+</html>
