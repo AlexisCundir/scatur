@@ -39,88 +39,65 @@
 
       <!-- Logo -->
       <a href="index.html" class="flex items-center gap-2 shrink-0">
-        <span class="text-2xl font-bold tracking-tight" style="color:var(--primary);font-family:var(--font-display);">
-          scatur
-        </span>
-        <span class="text-[9px] text-gray-400 uppercase tracking-[0.2em] hidden sm:block leading-none mt-1">tour
-          operator</span>
+        <img src="src/logos/SCATUR.svg" alt="logo de scatur" height="87" width="100" />
       </a>
 
-      <!-- Desktop links -->
+      <!-- Desktop Links -->
       <ul class="hidden md:flex items-center gap-0.5 text-sm font-medium" style="color:var(--primary);">
+        <!-- Menu Desplegable Servicios -->
         <li class="dropdown">
           <button class="flex items-center gap-1.5 px-4 py-2.5 rounded-full hover:bg-gray-100 transition-colors">
             Servicios
-            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-            </svg>
+            <img src="src/icono-flecha.svg" alt="Icono de flecha" class="w-3.5 h-3.5">
           </button>
           <div class="dropdown-menu">
             <a href="paquetes.html"
               class="flex items-center gap-3 px-5 py-3.5 text-sm hover:bg-blue-50 transition-colors group"
               style="color:var(--primary);">
-              <svg class="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity" fill="none"
-                stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                <rect x="3" y="3" width="18" height="18" rx="2" />
-                <circle cx="15" cy="15" r="2" />
-              </svg>
+              <img src="src/icono-paquetes.svg" alt="Icono Paquetes Turísticos"
+                class="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity">
               Paquetes Turísticos
             </a>
-            <a href="#servicios"
-              class="flex items-center gap-3 px-5 py-3.5 text-sm hover:bg-blue-50 transition-colors group"
+            <a href="#" class="flex items-center gap-3 px-5 py-3.5 text-sm hover:bg-blue-50 transition-colors group"
               style="color:var(--primary);">
-              <svg class="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity" fill="none"
-                stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                <path
-                  d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" />
-              </svg>
+              <img src="src/icono-boletos.svg" alt="Icono Boletos Aéreos"
+                class="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity">
               Boletos Aéreos
             </a>
-            <a href="#servicios"
-              class="flex items-center gap-3 px-5 py-3.5 text-sm hover:bg-blue-50 transition-colors group"
+            <a href="#" class="flex items-center gap-3 px-5 py-3.5 text-sm hover:bg-blue-50 transition-colors group"
               style="color:var(--primary);">
-              <svg class="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity" fill="none"
-                stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                <path d="M2 20h20M5 20V8l7-5 7 5v12" />
-              </svg>
+              <img src="src/icono-cruceros.svg" alt="Icono Cruceros"
+                class="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity">
               Cruceros
             </a>
-            <a href="#servicios"
-              class="flex items-center gap-3 px-5 py-3.5 text-sm hover:bg-blue-50 transition-colors group"
+            <a href="#" class="flex items-center gap-3 px-5 py-3.5 text-sm hover:bg-blue-50 transition-colors group"
               style="color:var(--primary);">
-              <svg class="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity" fill="none"
-                stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              </svg>
+              <img src="src/icono-asistencia.svg" alt="Icono Asistencia al Viajero"
+                class="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity">
               Asistencia al Viajero
             </a>
-            <a href="#servicios"
-              class="flex items-center gap-3 px-5 py-3.5 text-sm hover:bg-blue-50 transition-colors group"
+            <a href="#" class="flex items-center gap-3 px-5 py-3.5 text-sm hover:bg-blue-50 transition-colors group"
               style="color:var(--primary);">
-              <svg class="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity" fill="none"
-                stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                <rect x="2" y="5" width="20" height="14" rx="2" />
-                <path d="M2 10h20" />
-              </svg>
+              <img src="src/icono-visa.svg" alt="Icono Asesoramiento en Visa"
+                class="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity">
               Asesoramiento en Visa
             </a>
           </div>
         </li>
+
         <li><a href="contacto.html" class="px-4 py-2.5 rounded-full hover:bg-gray-100 transition-colors">Contáctanos</a>
         </li>
-        <li><a href="nosotros.html" class="px-4 py-2.5 rounded-full hover:bg-gray-100 transition-colors">Sobre
-            Nosotros</a></li>
+        <li>
+          <a href="nosotros.html" class="px-4 py-2.5 rounded-full hover:bg-gray-100 transition-colors">Sobre
+            Nosotros</a>
+        </li>
+        <!-- Menu Desplegable Idiomas (AUN NO FUNCIONAL) -->
         <li class="dropdown ml-1">
           <button
             class="flex items-center gap-2 px-4 py-2.5 rounded-full border border-gray-200 hover:bg-gray-100 transition-colors">
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-              <circle cx="12" cy="12" r="10" />
-              <path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20" />
-            </svg>
+            <img src="src/icono-planeta.svg" alt="Icono de Planeta para seleccionar Idiomas" class="w-4 h-4">
             Spanish
-            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-            </svg>
+            <img src="src/icono-flecha.svg" alt="Icono de flecha" class="w-3 h-3">
           </button>
           <div class="dropdown-menu">
             <a href="#" class="block px-5 py-3.5 text-sm hover:bg-gray-50 transition-colors"
@@ -131,20 +108,18 @@
         </li>
       </ul>
 
-      <!-- Mobile burger -->
+      <!-- Boton Menu para Mobile -->
       <button id="mobile-menu-btn" class="md:hidden p-2 rounded-full hover:bg-gray-100 transition-colors"
         style="color:var(--primary);">
-        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
+        <img src="src/icono-menu.svg" alt="Icono Menu" class="w-5 h-5">
       </button>
     </nav>
 
-    <!-- Mobile menu -->
+    <!-- Menu Mobile -->
     <div id="mobile-menu"
-      class="hidden md:hidden navbar-pill max-w-6xl mx-auto mt-2 px-6 py-5 flex flex-col gap-4 text-sm font-medium"
+      class="md:hidden navbar-pill w-fit ml-auto mt-2 px-6 py-5 flex flex-col items-end gap-4 text-sm font-medium rounded-3xl hidden"
       style="color:var(--primary);">
-      <a href="#servicios" class="hover:opacity-70 transition-opacity">Servicios</a>
+      <a href="#" class="hover:opacity-70 transition-opacity">Servicios</a>
       <a href="contacto.html" class="hover:opacity-70 transition-opacity">Contáctanos</a>
       <a href="nosotros.html" class="hover:opacity-70 transition-opacity">Sobre Nosotros</a>
     </div>
