@@ -217,19 +217,19 @@
         <div class="marquee-track">
           <!-- Repeat items twice for seamless loop -->
           <template id="partner-items">
-            <div class="partner-logo flex items-center gap-2 shrink-0 w-1/4 h-full p-2">
+            <div class="partner-logo flex items-center gap-2 shrink-0 w-1/12 h-full p-2">
               <img src="src/logos/AGB.svg" alt="Logo de la AGB">
             </div>
-            <div class="partner-logo flex items-center gap-2 shrink-0 w-1/4 h-full p-2">
+            <div class="partner-logo flex items-center gap-2 shrink-0 w-1/12 h-full p-2">
               <img src="src/logos/CTA.svg" alt="Logo de la CTA">
             </div>
-            <div class="partner-logo flex items-center gap-2 shrink-0 w-1/4 h-full p-2">
+            <div class="partner-logo flex items-center gap-2 shrink-0 w-1/12 h-full p-2">
               <img src="src/logos/DOMOS.svg" alt="Logo de DOMOS">
             </div>
-            <div class="partner-logo flex items-center gap-2 shrink-0 w-1/4 h-full p-2">
+            <div class="partner-logo flex items-center gap-2 shrink-0 w-1/12 h-full p-2">
               <img src="src/logos/MILENIUM.svg" alt="Logo de MILLENIUM">
             </div>
-            <div class="partner-logo flex items-center gap-2 shrink-0 w-1/4 h-full p-2">
+            <div class="partner-logo flex items-center gap-2 shrink-0 w-1/12 h-full p-2">
               <img src="src/logos/TRAVEL.svg" alt="Logo de la TRAVEL">
             </div>
           </template>
@@ -720,7 +720,7 @@
         const track = document.querySelector('.marquee-track');
         // Clone twice
         const html = tpl.innerHTML;
-        track.innerHTML = html + html;
+        track.innerHTML = html + html + html;
         tpl.remove();
       })();
 
