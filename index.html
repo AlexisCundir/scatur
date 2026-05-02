@@ -149,13 +149,13 @@
 
         <div id="hero-location"
           class="flex items-center justify-center gap-2 text-white/65 text-xs tracking-widest uppercase mb-10 opacity-0">
-          <img src="src/icono-maps.svg" alt="Icono Ubicacion en Mapa" class="w-3.5 h-3.5">
+          <img src="src/icono-maps.svg" alt="Icono Ubicacion en Mapa" class="w-3.5 h-3.5 invert opacity-65">
           Tiwanaku, Bolivia &ensp;·&ensp; Kalasasaya
         </div>
 
         <div id="hero-ctas" class="flex items-center justify-center gap-4 flex-wrap opacity-0">
           <a href="https://wa.me/59169846888" target="_blank" class="btn-primary">
-            <img src="src/icono-whatsapp.svg" alt="Icono de WhatsApp" class="w-4 h-4">
+            <img src="src/icono-whatsapp.svg" alt="Icono de WhatsApp" class="w-4 h-4 invert">
             WhatsApp
           </a>
           <a href="contacto.html" class="btn-ghost">Contáctanos</a>
@@ -590,8 +590,9 @@
         <h2 class="text-white text-4xl font-semibold leading-tight mb-3" style="font-family:var(--font-display);">
           Bolivia te<br /><em style="color:var(--gold);">espera</em>
         </h2>
-        <p class="text-white/65 text-sm leading-relaxed">El altiplano, los salares y la selva amazónica en un solo
-          destino.</p>
+        <p class="text-white/65 text-sm leading-relaxed">
+          El altiplano, los salares y la selva amazónica en un solo destino.
+        </p>
       </div>
 
       <!-- Newsletter card -->
@@ -606,7 +607,9 @@
             class="flex-1 px-4 py-3 text-sm outline-none bg-white placeholder-gray-400 min-w-0" />
           <button
             class="px-5 py-3 text-white text-sm font-semibold whitespace-nowrap rounded-full hover:opacity-90 transition-opacity"
-            style="background:var(--primary);">Suscríbete</button>
+            style="background:var(--primary);">
+            Suscríbete
+          </button>
         </div>
         <p class="text-xs text-gray-500 mt-4 leading-relaxed">
           Sé el primero en conocer las novedades, destinos en tendencia y experiencias personalizadas.
@@ -628,30 +631,24 @@
       <div data-aos="fade-up" data-aos-delay="0">
         <h4 class="font-bold text-[11px] uppercase tracking-[0.2em] mb-6 text-white/45">Contáctanos</h4>
         <ul class="space-y-4 text-sm">
-          <li class="flex items-center gap-3 text-white/75 hover:text-white transition-colors cursor-pointer">
+          <li class="group flex items-center gap-3 text-white/75 hover:text-white transition-colors cursor-pointer">
             <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-              </svg>
+              <img src="src/icono-maps.svg" alt="Icono Ubicacion en Mapa"
+                class="w-3.5 h-3.5 invert opacity-65 group-hover:opacity-100 transition-opacity">
             </div>
             Ver en Mapa
           </li>
-          <li class="flex items-center gap-3 text-white/75 hover:text-white transition-colors">
+          <li class="group flex items-center gap-3 text-white/75 hover:text-white transition-colors">
             <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C9.61 21 3 14.39 3 6a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z" />
-              </svg>
+              <img src="src/icono-telefono.svg" alt="Icono de telefono"
+                class="w-3.5 h-3.5 invert opacity-65 group-hover:opacity-100 transition-opacity">
             </div>
             +591 69846888
           </li>
-          <li class="flex items-center gap-3 text-white/75 hover:text-white transition-colors">
+          <li class="group flex items-center gap-3 text-white/75 hover:text-white transition-colors">
             <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
-              </svg>
+              <img src="src/icono-mail.svg" alt="Icono de mensaje"
+                class="w-3.5 h-3.5 invert opacity-65 group-hover:opacity-100 transition-opacity">
             </div>
             scatur.bolivian@gmail.com
           </li>
@@ -662,29 +659,77 @@
       <div data-aos="fade-up" data-aos-delay="100">
         <h4 class="font-bold text-[11px] uppercase tracking-[0.2em] mb-6 text-white/45">Servicios</h4>
         <ul class="space-y-3 text-sm">
-          <li><a href="paquetes.html" class="footer-link">Paquetes Turísticos</a></li>
-          <li><a href="index.html#servicios" class="footer-link">Boletos Aéreos</a></li>
-          <li><a href="index.html#servicios" class="footer-link">Cruceros</a></li>
-          <li><a href="index.html#servicios" class="footer-link">Asistencia al Viajero</a></li>
-          <li><a href="index.html#servicios" class="footer-link">Asesoramiento en Visa</a></li>
+          <li>
+            <div class="group footer-link">
+              <img src="src/icono-flecha.svg" alt="Icono de flecha"
+                class="w-3.5 h-3.5 inline-block invert opacity-65 group-hover:opacity-100 transition-opacity -rotate-90">
+              <a href="paquetes.html">
+                Paquetes Turísticos
+              </a>
+            </div>
+          </li>
+          <li>
+            <div class="group footer-link">
+              <img src="src/icono-flecha.svg" alt="Icono de flecha"
+                class="w-3.5 h-3.5 inline-block invert opacity-65 group-hover:opacity-100 transition-opacity -rotate-90">
+              <a href="index.html#servicios">
+                Boletos Aéreos
+              </a>
+            </div>
+          </li>
+          <li>
+            <div class="group footer-link">
+              <img src="src/icono-flecha.svg" alt="Icono de flecha"
+                class="w-3.5 h-3.5 inline-block invert opacity-65 group-hover:opacity-100 transition-opacity -rotate-90">
+              <a href="index.html#servicios">
+                Cruceros
+              </a>
+            </div>
+          </li>
+          <li>
+            <div class="group footer-link">
+              <img src="src/icono-flecha.svg" alt="Icono de flecha"
+                class="w-3.5 h-3.5 inline-block invert opacity-65 group-hover:opacity-100 transition-opacity -rotate-90">
+              <a href="index.html#servicios">
+                Asistencia al Viajero
+              </a>
+            </div>
+          </li>
+          <li>
+            <div class="group footer-link">
+              <img src="src/icono-flecha.svg" alt="Icono de flecha"
+                class="w-3.5 h-3.5 inline-block invert opacity-65 group-hover:opacity-100 transition-opacity -rotate-90">
+              <a href="index.html#servicios">
+                Asesoramiento en Visa
+              </a>
+            </div>
+          </li>
         </ul>
       </div>
 
       <!-- Brand -->
-      <div class="flex flex-col items-start md:items-end gap-5" data-aos="fade-up" data-aos-delay="200">
-        <div class="text-right">
-          <div class="text-4xl font-bold" style="font-family:var(--font-display);">
-            scatur
+      <div class="flex flex-col items-center md:items-end gap-5" data-aos="fade-up" data-aos-delay="200">
+        <div class="flex flex-col items-center text-right">
+          <div class="w-40 h-12 bg-white opacity-65" style="mask-image: url('src/logos/SCATUR.svg'); 
+            mask-repeat: no-repeat; 
+            mask-size: 100% 120%; 
+            mask-position: top;">
           </div>
-          <div class="text-[10px] font-light tracking-[0.25em] text-white/45 uppercase mt-0.5">Experiencias y Destinos
+          <div class="text-[10px] font-light tracking-[0.25em] text-white/45 uppercase mt-0.5">
+            Experiencias y Destinos
           </div>
         </div>
-        <div class="flex flex-col items-start md:items-end gap-1.5">
+        <div class="flex flex-col items-center md:items-end gap-1.5">
           <div
             class="w-9 h-9 rounded-full border border-white/25 flex items-center justify-center text-white font-bold text-xs">
-            BO</div>
-          <span class="font-semibold tracking-widest text-sm">BOLIVIA</span>
-          <span class="text-[11px] text-white/45 italic">corazón del sur</span>
+            BO
+          </div>
+          <span class="font-semibold tracking-widest text-sm">
+            BOLIVIA
+          </span>
+          <span class="text-[11px] text-white/45 italic">
+            corazón del sur
+          </span>
         </div>
       </div>
 
@@ -695,40 +740,32 @@
       <div class="flex items-center gap-3">
         <a href="https://wa.me/59169846888" target="_blank"
           class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/15 transition-colors">
-          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-            <path
-              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z" />
-            <path
-              d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.123 1.528 5.855L.057 23.5l5.796-1.52A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.37l-.36-.213-3.44.903.916-3.35-.233-.372A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z" />
-          </svg>
+          <img src="src/icono-whatsapp.svg" alt="Icono de WhatsApp" class="w-4 h-4 invert">
         </a>
         <a href="#"
           class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/15 transition-colors">
-          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
-          </svg>
+
+          <img src="src/icono-facebook.svg" alt="Icono de Facebook" class="w-4 h-4 invert">
         </a>
         <a href="#"
           class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/15 transition-colors">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-            <rect x="2" y="2" width="20" height="20" rx="5" />
-            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
-            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-          </svg>
+          <img src="src/icono-instagram.svg" alt="Icono de Instagram" class="w-4 h-4 invert">
         </a>
         <a href="#"
           class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/15 transition-colors">
-          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-            <path
-              d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.81a8.18 8.18 0 004.78 1.52V6.88a4.85 4.85 0 01-1.01-.19z" />
-          </svg>
+          <img src="src/icono-tiktok.svg" alt="Icono de TikTok" class="w-4 h-4 invert">
         </a>
       </div>
       <p class="text-xs text-white/35 text-center sm:text-right">
-        Copyright © 2026 &nbsp;·&nbsp;
-        <a href="#" class="hover:text-white/70 transition-colors">Términos y Condiciones</a>
+        Copyright © 2026
         &nbsp;·&nbsp;
-        <a href="#" class="hover:text-white/70 transition-colors">Políticas y Privacidad</a>
+        <a href="#" class="hover:text-white/70 transition-colors">
+          Términos y Condiciones
+        </a>
+        &nbsp;·&nbsp;
+        <a href="#" class="hover:text-white/70 transition-colors">
+          Políticas y Privacidad
+        </a>
       </p>
     </div>
   </footer>
