@@ -39,88 +39,65 @@
 
       <!-- Logo -->
       <a href="index.html" class="flex items-center gap-2 shrink-0">
-        <span class="text-2xl font-bold tracking-tight" style="color:var(--primary);font-family:var(--font-display);">
-          scatur
-        </span>
-        <span class="text-[9px] text-gray-400 uppercase tracking-[0.2em] hidden sm:block leading-none mt-1">tour
-          operator</span>
+        <img src="src/logos/SCATUR.svg" alt="logo de scatur" height="87" width="100" />
       </a>
 
-      <!-- Desktop links -->
+      <!-- Desktop Links -->
       <ul class="hidden md:flex items-center gap-0.5 text-sm font-medium" style="color:var(--primary);">
+        <!-- Menu Desplegable Servicios -->
         <li class="dropdown">
           <button class="flex items-center gap-1.5 px-4 py-2.5 rounded-full hover:bg-gray-100 transition-colors">
             Servicios
-            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-            </svg>
+            <img src="src/icono-flecha.svg" alt="Icono de flecha" class="w-3.5 h-3.5">
           </button>
           <div class="dropdown-menu">
             <a href="paquetes.html"
               class="flex items-center gap-3 px-5 py-3.5 text-sm hover:bg-blue-50 transition-colors group"
               style="color:var(--primary);">
-              <svg class="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity" fill="none"
-                stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                <rect x="3" y="3" width="18" height="18" rx="2" />
-                <circle cx="15" cy="15" r="2" />
-              </svg>
+              <img src="src/icono-paquetes.svg" alt="Icono Paquetes Turísticos"
+                class="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity">
               Paquetes Turísticos
             </a>
-            <a href="#servicios"
-              class="flex items-center gap-3 px-5 py-3.5 text-sm hover:bg-blue-50 transition-colors group"
+            <a href="#" class="flex items-center gap-3 px-5 py-3.5 text-sm hover:bg-blue-50 transition-colors group"
               style="color:var(--primary);">
-              <svg class="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity" fill="none"
-                stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                <path
-                  d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" />
-              </svg>
+              <img src="src/icono-boletos.svg" alt="Icono Boletos Aéreos"
+                class="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity">
               Boletos Aéreos
             </a>
-            <a href="#servicios"
-              class="flex items-center gap-3 px-5 py-3.5 text-sm hover:bg-blue-50 transition-colors group"
+            <a href="#" class="flex items-center gap-3 px-5 py-3.5 text-sm hover:bg-blue-50 transition-colors group"
               style="color:var(--primary);">
-              <svg class="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity" fill="none"
-                stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                <path d="M2 20h20M5 20V8l7-5 7 5v12" />
-              </svg>
+              <img src="src/icono-cruceros.svg" alt="Icono Cruceros"
+                class="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity">
               Cruceros
             </a>
-            <a href="#servicios"
-              class="flex items-center gap-3 px-5 py-3.5 text-sm hover:bg-blue-50 transition-colors group"
+            <a href="#" class="flex items-center gap-3 px-5 py-3.5 text-sm hover:bg-blue-50 transition-colors group"
               style="color:var(--primary);">
-              <svg class="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity" fill="none"
-                stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              </svg>
+              <img src="src/icono-asistencia.svg" alt="Icono Asistencia al Viajero"
+                class="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity">
               Asistencia al Viajero
             </a>
-            <a href="#servicios"
-              class="flex items-center gap-3 px-5 py-3.5 text-sm hover:bg-blue-50 transition-colors group"
+            <a href="#" class="flex items-center gap-3 px-5 py-3.5 text-sm hover:bg-blue-50 transition-colors group"
               style="color:var(--primary);">
-              <svg class="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity" fill="none"
-                stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                <rect x="2" y="5" width="20" height="14" rx="2" />
-                <path d="M2 10h20" />
-              </svg>
+              <img src="src/icono-visa.svg" alt="Icono Asesoramiento en Visa"
+                class="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity">
               Asesoramiento en Visa
             </a>
           </div>
         </li>
+
         <li><a href="contacto.html" class="px-4 py-2.5 rounded-full hover:bg-gray-100 transition-colors">Contáctanos</a>
         </li>
-        <li><a href="nosotros.html" class="px-4 py-2.5 rounded-full hover:bg-gray-100 transition-colors">Sobre
-            Nosotros</a></li>
+        <li>
+          <a href="nosotros.html" class="px-4 py-2.5 rounded-full hover:bg-gray-100 transition-colors">Sobre
+            Nosotros</a>
+        </li>
+        <!-- Menu Desplegable Idiomas (AUN NO FUNCIONAL) -->
         <li class="dropdown ml-1">
           <button
             class="flex items-center gap-2 px-4 py-2.5 rounded-full border border-gray-200 hover:bg-gray-100 transition-colors">
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-              <circle cx="12" cy="12" r="10" />
-              <path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20" />
-            </svg>
+            <img src="src/icono-planeta.svg" alt="Icono de Planeta para seleccionar Idiomas" class="w-4 h-4">
             Spanish
-            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-            </svg>
+            <img src="src/icono-flecha.svg" alt="Icono de flecha" class="w-3 h-3">
           </button>
           <div class="dropdown-menu">
             <a href="#" class="block px-5 py-3.5 text-sm hover:bg-gray-50 transition-colors"
@@ -131,27 +108,23 @@
         </li>
       </ul>
 
-      <!-- Mobile burger -->
+      <!-- Boton Menu para Mobile -->
       <button id="mobile-menu-btn" class="md:hidden p-2 rounded-full hover:bg-gray-100 transition-colors"
         style="color:var(--primary);">
-        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
+        <img src="src/icono-menu.svg" alt="Icono Menu" class="w-5 h-5">
       </button>
     </nav>
 
-    <!-- Mobile menu -->
+    <!-- Menu Mobile -->
     <div id="mobile-menu"
-      class="hidden md:hidden navbar-pill max-w-6xl mx-auto mt-2 px-6 py-5 flex flex-col gap-4 text-sm font-medium"
+      class="md:hidden navbar-pill w-fit ml-auto mt-2 px-6 py-5 flex flex-col items-end gap-4 text-sm font-medium rounded-3xl hidden"
       style="color:var(--primary);">
-      <a href="#servicios" class="hover:opacity-70 transition-opacity">Servicios</a>
+      <a href="#" class="hover:opacity-70 transition-opacity">Servicios</a>
       <a href="contacto.html" class="hover:opacity-70 transition-opacity">Contáctanos</a>
       <a href="nosotros.html" class="hover:opacity-70 transition-opacity">Sobre Nosotros</a>
     </div>
   </header>
   <!-- End: Navbar -->
-
-
   <main>
 
     <!-- ============================================================
@@ -176,21 +149,13 @@
 
         <div id="hero-location"
           class="flex items-center justify-center gap-2 text-white/65 text-xs tracking-widest uppercase mb-10 opacity-0">
-          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-            <path
-              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-          </svg>
+          <img src="src/icono-maps.svg" alt="Icono Ubicacion en Mapa" class="w-3.5 h-3.5 invert opacity-65">
           Tiwanaku, Bolivia &ensp;·&ensp; Kalasasaya
         </div>
 
         <div id="hero-ctas" class="flex items-center justify-center gap-4 flex-wrap opacity-0">
           <a href="https://wa.me/59169846888" target="_blank" class="btn-primary">
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z" />
-              <path
-                d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.123 1.528 5.855L.057 23.5l5.796-1.52A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.37l-.36-.213-3.44.903.916-3.35-.233-.372A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z" />
-            </svg>
+            <img src="src/icono-whatsapp.svg" alt="Icono de WhatsApp" class="w-4 h-4 invert">
             WhatsApp
           </a>
           <a href="contacto.html" class="btn-ghost">Contáctanos</a>
@@ -209,9 +174,8 @@
       <!-- Scroll hint -->
       <div class="scroll-indicator">
         <span>Scroll</span>
-        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-        </svg>
+        <!-- Cambio el color de la flecha con: brightness-0 invert opacity-50 -->
+        <img src="src/icono-flecha.svg" alt="Icono de flecha" class="w-4 h-4 brightness-0 invert opacity-50">
       </div>
     </section>
     <!-- End: Hero Section -->
@@ -253,40 +217,20 @@
         <div class="marquee-track">
           <!-- Repeat items twice for seamless loop -->
           <template id="partner-items">
-            <div class="partner-logo flex items-center gap-2 text-[#0077b6] font-bold text-base shrink-0">
-              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" />
-              </svg>
-              BAC ASSIST
+            <div class="partner-logo flex items-center gap-2 shrink-0 w-1/12 h-full p-2">
+              <img src="src/logos/AGB.svg" alt="Logo de la AGB">
             </div>
-            <div class="partner-logo text-[#e11d48] font-bold text-lg italic shrink-0">
-              Europcar<span class="text-[10px] text-gray-400 font-normal not-italic block leading-none">moving your
-                way</span>
+            <div class="partner-logo flex items-center gap-2 shrink-0 w-1/12 h-full p-2">
+              <img src="src/logos/CTA.svg" alt="Logo de la CTA">
             </div>
-            <div
-              class="partner-logo border border-yellow-700 px-3 py-1.5 rounded text-yellow-800 font-bold text-sm shrink-0">
-              DOMOS<span class="text-[9px] font-normal block">TITICACA 365</span>
+            <div class="partner-logo flex items-center gap-2 shrink-0 w-1/12 h-full p-2">
+              <img src="src/logos/DOMOS.svg" alt="Logo de DOMOS">
             </div>
-            <div class="partner-logo text-red-700 font-bold text-xl border border-red-700 px-3 py-2 shrink-0">CTA</div>
-            <div class="partner-logo flex items-center gap-2 shrink-0">
-              <div
-                class="w-8 h-8 rounded-full bg-red-700 flex items-center justify-center text-white text-xs font-bold">MH
-              </div>
-              <div class="text-xs font-bold leading-tight" style="color:var(--primary);">MILENIUM<br />HOLDING</div>
+            <div class="partner-logo flex items-center gap-2 shrink-0 w-1/12 h-full p-2">
+              <img src="src/logos/MILENIUM.svg" alt="Logo de MILLENIUM">
             </div>
-            <div class="partner-logo flex items-center gap-2 font-bold text-sm shrink-0" style="color:var(--primary);">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10" />
-                <path d="M12 8v8M8 12h8" />
-              </svg>
-              CONGRESO INT.
-            </div>
-            <div class="partner-logo flex items-center gap-2 font-bold text-sm shrink-0" style="color:#2563eb;">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2a5 5 0 100 10A5 5 0 0012 2zM4 20c0-4 3.6-7 8-7s8 3 8 7" />
-              </svg>
-              AGB TOURS
+            <div class="partner-logo flex items-center gap-2 shrink-0 w-1/12 h-full p-2">
+              <img src="src/logos/TRAVEL.svg" alt="Logo de la TRAVEL">
             </div>
           </template>
         </div>
@@ -300,6 +244,7 @@
     ============================================================ -->
     <section id="servicios" class="py-24 px-4">
       <div class="max-w-6xl mx-auto">
+        <!-- Titulo: todo lo que necesitas -->
         <div class="text-center mb-14">
           <p class="section-label justify-center mb-4" data-aos="fade-up">Nuestros Servicios</p>
           <h2 class="heading-display text-4xl md:text-5xl font-semibold" data-aos="fade-up" data-aos-delay="80">
@@ -310,21 +255,16 @@
         <div class="relative">
           <button onclick="scrollCarousel('services',-1)"
             class="carousel-btn absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 z-10 hidden md:flex">
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-            </svg>
+            <img src="src/icono-flecha.svg" alt="Icono de flecha" class="w-4 h-4 rotate-90 invert">
           </button>
           <div class="overflow-hidden">
             <div id="services-track" class="carousel-track">
 
               <article class="service-card p-8 flex flex-col items-center text-center min-w-[280px] flex-1"
                 data-aos="fade-up" data-aos-delay="0">
-                <div class="icon-circle mb-6"><svg class="w-11 h-11" viewBox="0 0 24 24" fill="none" stroke-width="1.5"
-                    stroke="var(--primary)">
-                    <rect x="3" y="3" width="18" height="18" rx="2" />
-                    <path d="M3 9h18M9 21V9" />
-                    <circle cx="15" cy="15" r="2" />
-                  </svg></div>
+                <div class="icon-circle mb-6">
+                  <img src="src/icono-big-paquetes.svg" alt="Icono de Paquetes Turísticos" class="w-11 h-11">
+                </div>
                 <h3 class="text-lg font-bold mb-3" style="color:var(--primary);">Paquetes Turísticos</h3>
                 <p class="text-sm text-gray-500 leading-relaxed mb-6">Experiencias personalizadas desde un día hasta
                   circuitos internacionales.</p>
@@ -333,11 +273,9 @@
 
               <article class="service-card p-8 flex flex-col items-center text-center min-w-[280px] flex-1"
                 data-aos="fade-up" data-aos-delay="100">
-                <div class="icon-circle mb-6"><svg class="w-11 h-11" viewBox="0 0 24 24" fill="none" stroke-width="1.5"
-                    stroke="var(--primary)">
-                    <path
-                      d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" />
-                  </svg></div>
+                <div class="icon-circle mb-6">
+                  <img src="src/icono-big-boletos.svg" alt="Icono de Boletos Aéreos" class="w-11 h-11">
+                </div>
                 <h3 class="text-lg font-bold mb-3" style="color:var(--primary);">Boletos Aéreos</h3>
                 <p class="text-sm text-gray-500 leading-relaxed mb-6">Vuelos nacionales e internacionales a las mejores
                   tarifas del mercado.</p>
@@ -346,10 +284,9 @@
 
               <article class="service-card p-8 flex flex-col items-center text-center min-w-[280px] flex-1"
                 data-aos="fade-up" data-aos-delay="200">
-                <div class="icon-circle mb-6"><svg class="w-11 h-11" viewBox="0 0 24 24" fill="none" stroke-width="1.5"
-                    stroke="var(--primary)">
-                    <path d="M2 20h20M5 20V8l7-5 7 5v12M10 20v-6h4v6" />
-                  </svg></div>
+                <div class="icon-circle mb-6">
+                  <img src="src/icono-big-cruceros.svg" alt="Icono Cruceros" class="w-11 h-11">
+                </div>
                 <h3 class="text-lg font-bold mb-3" style="color:var(--primary);">Cruceros</h3>
                 <p class="text-sm text-gray-500 leading-relaxed mb-6">Reserva todo tipo de cruceros en el destino que
                   prefieras.</p>
@@ -358,10 +295,9 @@
 
               <article class="service-card p-8 flex flex-col items-center text-center min-w-[280px] flex-1"
                 data-aos="fade-up" data-aos-delay="0">
-                <div class="icon-circle mb-6"><svg class="w-11 h-11" viewBox="0 0 24 24" fill="none" stroke-width="1.5"
-                    stroke="var(--primary)">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                  </svg></div>
+                <div class="icon-circle mb-6">
+                  <img src="src/icono-big-asistencia.svg" alt="Icono Asistencia al Viajero" class="w-11 h-11">
+                </div>
                 <h3 class="text-lg font-bold mb-3" style="color:var(--primary);">Asistencia al Viajero</h3>
                 <p class="text-sm text-gray-500 leading-relaxed mb-6">Cobertura y soporte integral para viajar con total
                   tranquilidad.</p>
@@ -370,11 +306,9 @@
 
               <article class="service-card p-8 flex flex-col items-center text-center min-w-[280px] flex-1"
                 data-aos="fade-up" data-aos-delay="100">
-                <div class="icon-circle mb-6"><svg class="w-11 h-11" viewBox="0 0 24 24" fill="none" stroke-width="1.5"
-                    stroke="var(--primary)">
-                    <rect x="2" y="5" width="20" height="14" rx="2" />
-                    <path d="M2 10h20" />
-                  </svg></div>
+                <div class="icon-circle mb-6">
+                  <img src="src/icono-big-visa.svg" alt="Icono Asesoramiento en Visa" class="w-11 h-11">
+                </div>
                 <h3 class="text-lg font-bold mb-3" style="color:var(--primary);">Asesoramiento en Visa</h3>
                 <p class="text-sm text-gray-500 leading-relaxed mb-6">Te guiamos en el proceso de visas para que no
                   tengas contratiempos.</p>
@@ -385,9 +319,7 @@
           </div>
           <button onclick="scrollCarousel('services',1)"
             class="carousel-btn cbtn absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 z-10 hidden md:flex">
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-            </svg>
+            <img src="src/icono-flecha.svg" alt="Icono de flecha" class="w-4 h-4 -rotate-90 invert">
           </button>
         </div>
       </div>
@@ -412,22 +344,18 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-10 mb-12">
           <div class="why-item flex flex-col items-center text-center gap-5" data-aos="fade-up" data-aos-delay="0">
-            <div class="why-icon-wrap"><svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="white"
-                stroke-width="1.8">
-                <path d="M12 22C6.5 22 2 17.5 2 12S6.5 2 12 2s10 4.5 10 10-4.5 10-10 10z" />
-                <path d="M8 12l3 3 5-5" />
-              </svg></div>
+            <div class="why-icon-wrap">
+              <img src="src/icono-calidad.svg" alt="Icono check de calidad" class="w-7 h-7">
+            </div>
             <div>
               <h3 class="font-bold text-base mb-2" style="color:var(--primary);">Calidad</h3>
               <p class="text-sm text-gray-500 leading-relaxed">Garantizamos excelencia en cada detalle de tu viaje.</p>
             </div>
           </div>
           <div class="why-item flex flex-col items-center text-center gap-5" data-aos="fade-up" data-aos-delay="120">
-            <div class="why-icon-wrap"><svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="white"
-                stroke-width="1.8">
-                <circle cx="12" cy="8" r="4" />
-                <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
-              </svg></div>
+            <div class="why-icon-wrap">
+              <img src="src/icono-perfil.svg" alt="Icono de perfil" class="w-7 h-7">
+            </div>
             <div>
               <h3 class="font-bold text-base mb-2" style="color:var(--primary);">Servicios Personalizados</h3>
               <p class="text-sm text-gray-500 leading-relaxed">Nos adaptamos a tus necesidades para una experiencia
@@ -435,11 +363,9 @@
             </div>
           </div>
           <div class="why-item flex flex-col items-center text-center gap-5" data-aos="fade-up" data-aos-delay="240">
-            <div class="why-icon-wrap"><svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="white"
-                stroke-width="1.8">
-                <rect x="3" y="4" width="18" height="18" rx="2" />
-                <path d="M16 2v4M8 2v4M3 10h18" />
-              </svg></div>
+            <div class="why-icon-wrap">
+              <img src="src/icono-calendario.svg" alt="Iocno de calendario" class="w-7 h-7">
+            </div>
             <div>
               <h3 class="font-bold text-base mb-2" style="color:var(--primary);">Flexibilidad</h3>
               <p class="text-sm text-gray-500 leading-relaxed">Cambia, ajusta o reprograma tus planes sin
@@ -449,11 +375,9 @@
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-10 max-w-2xl mx-auto">
           <div class="why-item flex flex-col items-center text-center gap-5" data-aos="fade-up" data-aos-delay="0">
-            <div class="why-icon-wrap"><svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="white"
-                stroke-width="1.8">
-                <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
-              </svg></div>
+            <div class="why-icon-wrap">
+              <img src="src/icono-guias.svg" alt="Iocno de guias" class="w-7 h-7">
+            </div>
             <div>
               <h3 class="font-bold text-base mb-2" style="color:var(--primary);">Guías Certificados</h3>
               <p class="text-sm text-gray-500 leading-relaxed">Expertos locales que garantizan experiencias auténticas y
@@ -461,11 +385,9 @@
             </div>
           </div>
           <div class="why-item flex flex-col items-center text-center gap-5" data-aos="fade-up" data-aos-delay="120">
-            <div class="why-icon-wrap"><svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="white"
-                stroke-width="1.8">
-                <path d="M12 2a10 10 0 100 20A10 10 0 0012 2z" />
-                <path d="M9 12l2 2 4-4" />
-              </svg></div>
+            <div class="why-icon-wrap">
+              <img src="src/icono-descuento.svg" alt="Icono de descuento" class="w-10 h-10">
+            </div>
             <div>
               <h3 class="font-bold text-base mb-2" style="color:var(--primary);">Descuentos Exclusivos</h3>
               <p class="text-sm text-gray-500 leading-relaxed">Accede a tarifas especiales y ahorra en tus aventuras.
@@ -493,54 +415,76 @@
         <div class="relative">
           <button onclick="scrollCarousel('destinations',-1)"
             class="carousel-btn absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 z-10 hidden md:flex">
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-            </svg>
+            <img src="src/icono-flecha.svg" alt="Icono de flecha" class="w-4 h-4 rotate-90 invert">
           </button>
           <div class="overflow-hidden">
             <div id="destinations-track" class="carousel-track">
 
               <article class="dest-card min-w-[280px] flex-1" data-aos="fade-up" data-aos-delay="0">
-                <div class="dest-card-img relative"><img
-                    src="https://images.unsplash.com/photo-1531968455001-5c5272a41129?w=600&q=80" alt="Bolivia" /><span
-                    class="badge-destacado">Destacado</span></div>
+                <div class="dest-card-img relative">
+                  <img src="https://images.unsplash.com/photo-1531968455001-5c5272a41129?w=600&q=80" alt="Bolivia" />
+                  <span class="badge-destacado">
+                    Destacado
+                  </span>
+                </div>
                 <div class="p-5">
-                  <h3 class="text-base font-extrabold mb-2" style="color:var(--primary);">PROGRAMA BOLIVIA SB001</h3>
-                  <p class="text-sm text-gray-500 leading-relaxed">Explora La Paz, la Cordillera Real, místicas islas y
-                    la impresionante Uyuni.</p>
+                  <h3 class="text-base font-extrabold mb-2" style="color:var(--primary);">
+                    PROGRAMA BOLIVIA SB001
+                  </h3>
+                  <p class="text-sm text-gray-500 leading-relaxed">
+                    Explora La Paz, la Cordillera Real, místicas islas y la impresionante Uyuni.
+                  </p>
                 </div>
               </article>
 
               <article class="dest-card min-w-[280px] flex-1" data-aos="fade-up" data-aos-delay="100">
-                <div class="dest-card-img relative"><img
-                    src="https://images.unsplash.com/photo-1531968455001-5c5272a41129?w=600&q=80" alt="Uyuni" /><span
-                    class="badge-destacado">Destacado</span></div>
+                <div class="dest-card-img relative">
+                  <img src="https://images.unsplash.com/photo-1531968455001-5c5272a41129?w=600&q=80" alt="Uyuni" />
+                  <span class="badge-destacado">
+                    Destacado
+                  </span>
+                </div>
                 <div class="p-5">
-                  <h3 class="text-base font-extrabold mb-2" style="color:var(--primary);">UYUNI – Programa 3D/2N</h3>
-                  <p class="text-sm text-gray-500 leading-relaxed">Vive la experiencia del Salar en tres días,
-                    explorando los atractivos de Uyuni.</p>
+                  <h3 class="text-base font-extrabold mb-2" style="color:var(--primary);">
+                    UYUNI – Programa 3D/2N
+                  </h3>
+                  <p class="text-sm text-gray-500 leading-relaxed">
+                    Vive la experiencia del Salar en tres días, explorando los atractivos de Uyuni.
+                  </p>
                 </div>
               </article>
 
               <article class="dest-card min-w-[280px] flex-1" data-aos="fade-up" data-aos-delay="200">
-                <div class="dest-card-img relative"><img
-                    src="https://images.unsplash.com/photo-1531968455001-5c5272a41129?w=600&q=80"
-                    alt="Copacabana" /><span class="badge-destacado">Destacado</span></div>
+                <div class="dest-card-img relative">
+                  <img src="https://images.unsplash.com/photo-1531968455001-5c5272a41129?w=600&q=80" alt="Copacabana" />
+                  <span class="badge-destacado">
+                    Destacado
+                  </span>
+                </div>
                 <div class="p-5">
-                  <h3 class="text-base font-extrabold mb-2" style="color:var(--primary);">Copacabana (3D/2N)</h3>
-                  <p class="text-sm text-gray-500 leading-relaxed">El lago navegable más alto del mundo, con visitas a
-                    las Islas del Sol y la Luna.</p>
+                  <h3 class="text-base font-extrabold mb-2" style="color:var(--primary);">
+                    Copacabana (3D/2N)
+                  </h3>
+                  <p class="text-sm text-gray-500 leading-relaxed">
+                    El lago navegable más alto del mundo, con visitas a las Islas del Sol y la Luna.
+                  </p>
                 </div>
               </article>
 
               <article class="dest-card min-w-[280px] flex-1" data-aos="fade-up" data-aos-delay="200">
-                <div class="dest-card-img relative"><img
-                    src="https://images.unsplash.com/photo-1531968455001-5c5272a41129?w=600&q=80"
-                    alt="Copacabana" /><span class="badge-destacado">Destacado</span></div>
+                <div class="dest-card-img relative">
+                  <img src="https://images.unsplash.com/photo-1531968455001-5c5272a41129?w=600&q=80" alt="Copacabana" />
+                  <span class="badge-destacado">
+                    Destacado
+                  </span>
+                </div>
                 <div class="p-5">
-                  <h3 class="text-base font-extrabold mb-2" style="color:var(--primary);">UYUNI – Programa 34/3N</h3>
-                  <p class="text-sm text-gray-500 leading-relaxed">Experiencia de cuatro días explorando el Salar de
-                    Uyuni, con visitas a géiseres y desiertos únicos.</p>
+                  <h3 class="text-base font-extrabold mb-2" style="color:var(--primary);">
+                    UYUNI – Programa 34/3N
+                  </h3>
+                  <p class="text-sm text-gray-500 leading-relaxed">
+                    Experiencia de cuatro días explorando el Salar de Uyuni, con visitas a géiseres y desiertos únicos.
+                  </p>
                 </div>
               </article>
 
@@ -548,9 +492,7 @@
           </div>
           <button onclick="scrollCarousel('destinations',1)"
             class="carousel-btn cbtn absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 z-10 hidden md:flex">
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-            </svg>
+            <img src="src/icono-flecha.svg" alt="Icono de flecha" class="w-4 h-4 invert -rotate-90">
           </button>
         </div>
       </div>
@@ -572,38 +514,65 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <article class="testimonial-card" data-aos="fade-up" data-aos-delay="0">
-            <div class="text-amber-400 text-xl mb-4">★★★★★</div>
-            <p class="text-sm text-gray-600 leading-relaxed mb-6 italic">"Empresas turísticas que brindan buen servicio,
-              les recomiendo hacer Zipline."</p>
+            <div class="text-amber-400 text-xl mb-4">
+              ★★★★★
+            </div>
+            <p class="text-sm text-gray-600 leading-relaxed mb-6 italic">
+              "Empresas turísticas que brindan buen servicio, les recomiendo hacer Zipline."
+            </p>
             <div class="flex flex-col items-center">
               <div class="w-11 h-11 rounded-full bg-blue-50 flex items-center justify-center font-bold text-sm mb-2"
-                style="color:var(--primary);">JE</div>
-              <span class="font-semibold text-sm" style="color:var(--primary);">Jorge Escobar</span>
-              <span class="text-[11px] text-gray-400 uppercase tracking-wide mt-0.5">La Paz, Bolivia</span>
+                style="color:var(--primary);">
+                JE
+              </div>
+              <span class="font-semibold text-sm" style="color:var(--primary);">
+                Jorge Escobar
+              </span>
+              <span class="text-[11px] text-gray-400 uppercase tracking-wide mt-0.5">
+                La Paz, Bolivia
+              </span>
             </div>
           </article>
 
           <article class="testimonial-card" data-aos="fade-up" data-aos-delay="130">
-            <div class="text-amber-400 text-xl mb-4">★★★★☆</div>
-            <p class="text-sm text-gray-600 leading-relaxed mb-6 italic">"Una experiencia muy alegre, los guías fueron
-              muy amables."</p>
+            <div class="text-amber-400 text-xl mb-4">
+              ★★★★☆
+            </div>
+            <p class="text-sm text-gray-600 leading-relaxed mb-6 italic">
+              "Una experiencia muy alegre, los guías fueron muy amables."
+            </p>
             <div class="flex flex-col items-center">
               <div class="w-11 h-11 rounded-full bg-blue-50 flex items-center justify-center font-bold text-sm mb-2"
-                style="color:var(--primary);">AL</div>
-              <span class="font-semibold text-sm" style="color:var(--primary);">Ana López</span>
-              <span class="text-[11px] text-gray-400 uppercase tracking-wide mt-0.5">Barcelona, España</span>
+                style="color:var(--primary);">
+                AL
+              </div>
+              <span class="font-semibold text-sm" style="color:var(--primary);">
+                Ana López
+              </span>
+              <span class="text-[11px] text-gray-400 uppercase tracking-wide mt-0.5">
+                Barcelona, España
+              </span>
             </div>
           </article>
 
           <article class="testimonial-card" data-aos="fade-up" data-aos-delay="260">
-            <div class="text-amber-400 text-xl mb-4">★★★★★</div>
-            <p class="text-sm text-gray-600 leading-relaxed mb-6 italic">"Los paisajes son de ensueño y un servicio
-              excelente. ¡Inolvidable!"</p>
+            <div class="text-amber-400 text-xl mb-4">
+              ★★★★★
+            </div>
+            <p class="text-sm text-gray-600 leading-relaxed mb-6 italic">
+              "Los paisajes son de ensueño y un servicio excelente. ¡Inolvidable!"
+            </p>
             <div class="flex flex-col items-center">
               <div class="w-11 h-11 rounded-full bg-blue-50 flex items-center justify-center font-bold text-sm mb-2"
-                style="color:var(--primary);">JT</div>
-              <span class="font-semibold text-sm" style="color:var(--primary);">Javier Torres</span>
-              <span class="text-[11px] text-gray-400 uppercase tracking-wide mt-0.5">Buenos Aires, Argentina</span>
+                style="color:var(--primary);">
+                JT
+              </div>
+              <span class="font-semibold text-sm" style="color:var(--primary);">
+                Javier Torres
+              </span>
+              <span class="text-[11px] text-gray-400 uppercase tracking-wide mt-0.5">
+                Buenos Aires, Argentina
+              </span>
             </div>
           </article>
         </div>
@@ -621,8 +590,9 @@
         <h2 class="text-white text-4xl font-semibold leading-tight mb-3" style="font-family:var(--font-display);">
           Bolivia te<br /><em style="color:var(--gold);">espera</em>
         </h2>
-        <p class="text-white/65 text-sm leading-relaxed">El altiplano, los salares y la selva amazónica en un solo
-          destino.</p>
+        <p class="text-white/65 text-sm leading-relaxed">
+          El altiplano, los salares y la selva amazónica en un solo destino.
+        </p>
       </div>
 
       <!-- Newsletter card -->
@@ -637,7 +607,9 @@
             class="flex-1 px-4 py-3 text-sm outline-none bg-white placeholder-gray-400 min-w-0" />
           <button
             class="px-5 py-3 text-white text-sm font-semibold whitespace-nowrap rounded-full hover:opacity-90 transition-opacity"
-            style="background:var(--primary);">Suscríbete</button>
+            style="background:var(--primary);">
+            Suscríbete
+          </button>
         </div>
         <p class="text-xs text-gray-500 mt-4 leading-relaxed">
           Sé el primero en conocer las novedades, destinos en tendencia y experiencias personalizadas.
@@ -659,30 +631,24 @@
       <div data-aos="fade-up" data-aos-delay="0">
         <h4 class="font-bold text-[11px] uppercase tracking-[0.2em] mb-6 text-white/45">Contáctanos</h4>
         <ul class="space-y-4 text-sm">
-          <li class="flex items-center gap-3 text-white/75 hover:text-white transition-colors cursor-pointer">
+          <li class="group flex items-center gap-3 text-white/75 hover:text-white transition-colors cursor-pointer">
             <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-              </svg>
+              <img src="src/icono-maps.svg" alt="Icono Ubicacion en Mapa"
+                class="w-3.5 h-3.5 invert opacity-65 group-hover:opacity-100 transition-opacity">
             </div>
             Ver en Mapa
           </li>
-          <li class="flex items-center gap-3 text-white/75 hover:text-white transition-colors">
+          <li class="group flex items-center gap-3 text-white/75 hover:text-white transition-colors">
             <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C9.61 21 3 14.39 3 6a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z" />
-              </svg>
+              <img src="src/icono-telefono.svg" alt="Icono de telefono"
+                class="w-3.5 h-3.5 invert opacity-65 group-hover:opacity-100 transition-opacity">
             </div>
             +591 69846888
           </li>
-          <li class="flex items-center gap-3 text-white/75 hover:text-white transition-colors">
+          <li class="group flex items-center gap-3 text-white/75 hover:text-white transition-colors">
             <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
-              </svg>
+              <img src="src/icono-mail.svg" alt="Icono de mensaje"
+                class="w-3.5 h-3.5 invert opacity-65 group-hover:opacity-100 transition-opacity">
             </div>
             scatur.bolivian@gmail.com
           </li>
@@ -693,29 +659,77 @@
       <div data-aos="fade-up" data-aos-delay="100">
         <h4 class="font-bold text-[11px] uppercase tracking-[0.2em] mb-6 text-white/45">Servicios</h4>
         <ul class="space-y-3 text-sm">
-          <li><a href="paquetes.html" class="footer-link">Paquetes Turísticos</a></li>
-          <li><a href="index.html#servicios" class="footer-link">Boletos Aéreos</a></li>
-          <li><a href="index.html#servicios" class="footer-link">Cruceros</a></li>
-          <li><a href="index.html#servicios" class="footer-link">Asistencia al Viajero</a></li>
-          <li><a href="index.html#servicios" class="footer-link">Asesoramiento en Visa</a></li>
+          <li>
+            <div class="group footer-link">
+              <img src="src/icono-flecha.svg" alt="Icono de flecha"
+                class="w-3.5 h-3.5 inline-block invert opacity-65 group-hover:opacity-100 transition-opacity -rotate-90">
+              <a href="paquetes.html">
+                Paquetes Turísticos
+              </a>
+            </div>
+          </li>
+          <li>
+            <div class="group footer-link">
+              <img src="src/icono-flecha.svg" alt="Icono de flecha"
+                class="w-3.5 h-3.5 inline-block invert opacity-65 group-hover:opacity-100 transition-opacity -rotate-90">
+              <a href="index.html#servicios">
+                Boletos Aéreos
+              </a>
+            </div>
+          </li>
+          <li>
+            <div class="group footer-link">
+              <img src="src/icono-flecha.svg" alt="Icono de flecha"
+                class="w-3.5 h-3.5 inline-block invert opacity-65 group-hover:opacity-100 transition-opacity -rotate-90">
+              <a href="index.html#servicios">
+                Cruceros
+              </a>
+            </div>
+          </li>
+          <li>
+            <div class="group footer-link">
+              <img src="src/icono-flecha.svg" alt="Icono de flecha"
+                class="w-3.5 h-3.5 inline-block invert opacity-65 group-hover:opacity-100 transition-opacity -rotate-90">
+              <a href="index.html#servicios">
+                Asistencia al Viajero
+              </a>
+            </div>
+          </li>
+          <li>
+            <div class="group footer-link">
+              <img src="src/icono-flecha.svg" alt="Icono de flecha"
+                class="w-3.5 h-3.5 inline-block invert opacity-65 group-hover:opacity-100 transition-opacity -rotate-90">
+              <a href="index.html#servicios">
+                Asesoramiento en Visa
+              </a>
+            </div>
+          </li>
         </ul>
       </div>
 
       <!-- Brand -->
-      <div class="flex flex-col items-start md:items-end gap-5" data-aos="fade-up" data-aos-delay="200">
-        <div class="text-right">
-          <div class="text-4xl font-bold" style="font-family:var(--font-display);">
-            scatur
+      <div class="flex flex-col items-center md:items-end gap-5" data-aos="fade-up" data-aos-delay="200">
+        <div class="flex flex-col items-center text-right">
+          <div class="w-40 h-12 bg-white opacity-65" style="mask-image: url('src/logos/SCATUR.svg'); 
+            mask-repeat: no-repeat; 
+            mask-size: 100% 120%; 
+            mask-position: top;">
           </div>
-          <div class="text-[10px] font-light tracking-[0.25em] text-white/45 uppercase mt-0.5">Experiencias y Destinos
+          <div class="text-[10px] font-light tracking-[0.25em] text-white/45 uppercase mt-0.5">
+            Experiencias y Destinos
           </div>
         </div>
-        <div class="flex flex-col items-start md:items-end gap-1.5">
+        <div class="flex flex-col items-center md:items-end gap-1.5">
           <div
             class="w-9 h-9 rounded-full border border-white/25 flex items-center justify-center text-white font-bold text-xs">
-            BO</div>
-          <span class="font-semibold tracking-widest text-sm">BOLIVIA</span>
-          <span class="text-[11px] text-white/45 italic">corazón del sur</span>
+            BO
+          </div>
+          <span class="font-semibold tracking-widest text-sm">
+            BOLIVIA
+          </span>
+          <span class="text-[11px] text-white/45 italic">
+            corazón del sur
+          </span>
         </div>
       </div>
 
@@ -726,40 +740,32 @@
       <div class="flex items-center gap-3">
         <a href="https://wa.me/59169846888" target="_blank"
           class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/15 transition-colors">
-          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-            <path
-              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z" />
-            <path
-              d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.123 1.528 5.855L.057 23.5l5.796-1.52A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.37l-.36-.213-3.44.903.916-3.35-.233-.372A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z" />
-          </svg>
+          <img src="src/icono-whatsapp.svg" alt="Icono de WhatsApp" class="w-4 h-4 invert">
         </a>
         <a href="#"
           class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/15 transition-colors">
-          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
-          </svg>
+
+          <img src="src/icono-facebook.svg" alt="Icono de Facebook" class="w-4 h-4 invert">
         </a>
         <a href="#"
           class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/15 transition-colors">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-            <rect x="2" y="2" width="20" height="20" rx="5" />
-            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
-            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-          </svg>
+          <img src="src/icono-instagram.svg" alt="Icono de Instagram" class="w-4 h-4 invert">
         </a>
         <a href="#"
           class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/15 transition-colors">
-          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-            <path
-              d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.81a8.18 8.18 0 004.78 1.52V6.88a4.85 4.85 0 01-1.01-.19z" />
-          </svg>
+          <img src="src/icono-tiktok.svg" alt="Icono de TikTok" class="w-4 h-4 invert">
         </a>
       </div>
       <p class="text-xs text-white/35 text-center sm:text-right">
-        Copyright © 2026 &nbsp;·&nbsp;
-        <a href="#" class="hover:text-white/70 transition-colors">Términos y Condiciones</a>
+        Copyright © 2026
         &nbsp;·&nbsp;
-        <a href="#" class="hover:text-white/70 transition-colors">Políticas y Privacidad</a>
+        <a href="#" class="hover:text-white/70 transition-colors">
+          Términos y Condiciones
+        </a>
+        &nbsp;·&nbsp;
+        <a href="#" class="hover:text-white/70 transition-colors">
+          Políticas y Privacidad
+        </a>
       </p>
     </div>
   </footer>
@@ -776,7 +782,7 @@
         const track = document.querySelector('.marquee-track');
         // Clone twice
         const html = tpl.innerHTML;
-        track.innerHTML = html + html;
+        track.innerHTML = html + html + html;
         tpl.remove();
       })();
 
